@@ -14,7 +14,7 @@
 
 <AnchorPane prefHeight="627.0" prefWidth="842.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainMenu">
    <children>
-      <TableView layoutX="3.0" layoutY="84.0" prefHeight="297.0" prefWidth="799.0" AnchorPane.bottomAnchor="300.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="30.0">
+      <TableView fx:id="tableTariffs" layoutX="3.0" layoutY="84.0" prefHeight="297.0" prefWidth="799.0" AnchorPane.bottomAnchor="300.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="30.0">
         <columns>
           <TableColumn fx:id="ID" prefWidth="46.39999771118164" text="ID" />
           <TableColumn fx:id="NAME" prefWidth="114.4000015258789" text="Tariff Name" />
