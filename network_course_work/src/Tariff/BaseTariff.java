@@ -59,10 +59,4 @@ public class BaseTariff {
                 ",\n\t\t\ttariff ID: " + this.ID +
                 ",\n\t\t\tgeneral number of tariff users: " + this.numberOfUsers;
     }
-
-    public String rowTable() {
-        return String.format("%-20s| %-10d| %-13.2f| %-10d| %-15s| %-10d|", this.name,
-                this.SMS, this.thisN, this.price, this.ID,
-                this.numberOfUsers);
-    }
 }

@@ -1,11 +1,13 @@
-import Tariff.BaseTariff;
+package command;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import Tariff.BaseTariff;
+import command.commandable.MenuCommand;
+import network.Network;
+
 import java.util.List;
 
-public class View implements MenuCommand{
-    public final static String NAME = "show";
+public class View implements MenuCommand {
+    public final static String NAME = "view";
     Network network;
 
     public View(Network network)

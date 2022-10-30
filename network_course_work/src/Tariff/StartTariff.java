@@ -12,13 +12,4 @@ public class StartTariff extends BaseTariff {
     public String toString() {
         return "Start Tariff " + super.toString() + ")";
     }
-
-    @Override
-    public String rowTable() {
-        return String.format("|%-17s ", " Start Tariff ") + super.rowTable() +
-                String.format(" %-14s| %-14s| %-9s|", "    -    ", "    -    ", "    -    ") +
-                "\n|-------------------------------------" +
-                "-----------------------------------------" +
-                "-----------------------------------------------------------------------|";
-    }
 }

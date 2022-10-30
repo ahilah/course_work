@@ -1,10 +1,11 @@
+package network;
+
 import Tariff.BaseTariff;
 import Tariff.StartTariff;
 import Tariff.SuperNetTariff;
 import Tariff.SuperTariff;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,8 +32,18 @@ public class Network {
     }
 
     private void CreateList() throws IOException {
-        tariffs = new ArrayList<>();
-       // readFile();
+        tariffs = new ArrayList<>() {};
+        tariffs.add(new StartTariff(1,"1", "Start", 123, 3, 10));
+        tariffs.add( new StartTariff(2,"2", "Start", 12, 4, 15));
+        tariffs.add(new SuperTariff(3,"3", "Super", 55, 40, 150, 36, 66));
+        tariffs.add(new SuperNetTariff(4,"3", "SuperNet", 55,
+                40, 150, 36, 66, 999));
+        /*tariffs.add();
+        tariffs.add();
+        tariffs.add();
+         // readFile();
+        */
+
     }
 
 

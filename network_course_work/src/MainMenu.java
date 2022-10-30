@@ -1,7 +1,6 @@
-import Tariff.BaseTariff;
-import Tariff.StartTariff;
-import Tariff.SuperNetTariff;
-import Tariff.SuperTariff;
+import Tariff.*;
+import command.*;
+import command.commandable.MenuCommand;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,11 +13,11 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import network.Network;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.LinkedHashMap;
-import java.util.Objects;
+import java.util.*;
 
 import static javafx.application.Application.launch;
 
@@ -33,25 +32,20 @@ public class MainMenu extends Application {
                 "lvivnet@microsoft.com");
         menuItems = new LinkedHashMap<>();
         menuItems.put(View.NAME, new View(network));
-        /*menuItems.put(Add.NAME, new Add(TP));
-        menuItems.put(Delete.NAME, new Delete(TP));
+        menuItems.put(Exit.NAME, new Exit(network));
+        /*menuItems.put(command.Add.NAME, new command.Add(TP));
+         menuItems.put(command.Delete.NAME, new command.Delete(TP));
         menuItems.put(Order.NAME, new Order(TP));
         menuItems.put(Agr.NAME, new Agr(TP));
         menuItems.put(Show.NAME, new Show(TP));
-        menuItems.put(Exit.NAME, new Exit(TP));*/
+       ;*/
     }
 //tableTariffs
     public void execute() throws InterruptedException, IOException, SQLException {
         launch();
     }
 
-    private ObservableList<BaseTariff> tariffData = FXCollections.observableArrayList(
-            new StartTariff(1,"1", "Start", 123, 3, 10),
-            new StartTariff(2,"2", "Start", 12, 4, 15),
-            new SuperTariff(3,"3", "Super", 55, 40, 150, 36, 66),
-            new SuperNetTariff(3,"3", "SuperNet", 55,
-                    40, 150, 36, 66, 999)
-    );
+    private ObservableList<BaseTariff> tariffData = FXCollections.observableArrayList();
 
     public ObservableList<BaseTariff> getTariffData() {
         return tariffData;
@@ -164,25 +158,29 @@ public class MainMenu extends Application {
         Other_Net.setCellValueFactory(new PropertyValueFactory<BaseTariff, Double>("other"));
         ABROAD.setCellValueFactory(new PropertyValueFactory<BaseTariff, Double>("abroad"));
         Internet.setCellValueFactory(new PropertyValueFactory<BaseTariff, Double>("internet"));
-        tableTariffs.setItems(tariffData);
-    }
-
-    private void add_table()
-    {
-
+        //tableTariffs.setItems(tariffData);
     }
 
     @FXML
     void click(ActionEvent event) {
         BaseTariff tariff = null;
         tariffData.clear();
+        MenuCommand cm;
         /*tariffData.addAll(network.getTariffs());
         System.out.println("tariffs are added");*/
-       // if (event.getSource() == show_all_btn) {
-            //tableTariffs.setItems(tariffData);
+       if (event.getSource() == show_all_btn) {
+           cm = menuItems.get("view");
+           tariffData.addAll(cm.execute(Collections.singletonList("all")));
+           showTariff(tariffData);
+       } else if (event.getSource() == exit_prg) {
+           cm = menuItems.get("exit");
+           cm.execute(List.of());
+       }
 
-      //  }
+    }
 
+    private void showTariff(ObservableList<BaseTariff> tariffData) {
+        tableTariffs.setItems(tariffData);
     }
 
 

@@ -1,3 +1,5 @@
+package command.commandable;
+
 import Tariff.BaseTariff;
 
 import java.io.IOException;
