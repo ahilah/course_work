@@ -26,6 +26,7 @@ public class MainMenu extends Application {
     private static Network network;
 
 
+
     private LinkedHashMap<String, MenuCommand> menuItems;
     public MainMenu() throws IOException {
         network = Network.getNetwork("LvivNet", "+380666990915",
@@ -33,6 +34,7 @@ public class MainMenu extends Application {
         menuItems = new LinkedHashMap<>();
         menuItems.put(View.NAME, new View(network));
         menuItems.put(Exit.NAME, new Exit(network));
+        menuItems.put(UserNumber.NAME, new UserNumber(network));
         /*menuItems.put(command.Add.NAME, new command.Add(TP));
          menuItems.put(command.Delete.NAME, new command.Delete(TP));
         menuItems.put(Order.NAME, new Order(TP));
@@ -40,7 +42,7 @@ public class MainMenu extends Application {
         menuItems.put(Show.NAME, new Show(TP));
        ;*/
     }
-//tableTariffs
+//users_col
     public void execute() throws InterruptedException, IOException, SQLException {
         launch();
     }
@@ -80,67 +82,48 @@ public class MainMenu extends Application {
     private TableView tableTariffs;
     @FXML
     private TableColumn<BaseTariff, Double> ABROAD;
-
     @FXML
     private TableColumn<BaseTariff, Integer> ID;
-
+    @FXML
+    private TableColumn <BaseTariff, Integer> users_col;
     @FXML
     private TableColumn<BaseTariff, Double> Internet;
-
     @FXML
     private TableColumn<BaseTariff, String> NAME;
-
     @FXML
     private TableColumn<BaseTariff, Double> Other_Net;
-
     @FXML
     private TableColumn<BaseTariff, Integer> PRICE;
-
     @FXML
     private TableColumn<BaseTariff, String> SMS;
-
     @FXML
     private TableColumn<BaseTariff, String> TYPE;
-
     @FXML
     private TableColumn<BaseTariff, Double> This_Net;
-
     @FXML
     private ToggleGroup addTariff;
-
     @FXML
     private Button add_tariff;
-
     @FXML
     private Button exit_prg;
-
     @FXML
     private TextField lower_te;
-
     @FXML
     private RadioButton nt_rbt;
-
     @FXML
     private ToggleGroup showGP;
-
     @FXML
     private Button show_all_btn;
-
     @FXML
     private Button show_tariff_btn;
-
     @FXML
     private RadioButton sr_rbt;
-
     @FXML
     private RadioButton strt_rbt;
-
     @FXML
     private Text tariff_numb_btn;
-
     @FXML
     private TextField upper_te;
-
     @FXML
     private Text user_numb_btn;
     @FXML
@@ -152,6 +135,7 @@ public class MainMenu extends Application {
         ID.setCellValueFactory(new PropertyValueFactory<BaseTariff, Integer>("ID"));
         NAME.setCellValueFactory(new PropertyValueFactory<BaseTariff, String>("name"));
         TYPE.setCellValueFactory(new PropertyValueFactory<BaseTariff, String>("type"));
+        users_col.setCellValueFactory(new PropertyValueFactory<BaseTariff, Integer>("user"));
         SMS.setCellValueFactory(new PropertyValueFactory<BaseTariff, String>("SMS"));
         This_Net.setCellValueFactory(new PropertyValueFactory<BaseTariff, Double>("thisN"));
         PRICE.setCellValueFactory(new PropertyValueFactory<BaseTariff, Integer>("price"));
@@ -176,11 +160,12 @@ public class MainMenu extends Application {
            cm = menuItems.get("exit");
            cm.execute(List.of());
        }
-
     }
 
     private void showTariff(ObservableList<BaseTariff> tariffData) {
         tableTariffs.setItems(tariffData);
+        tariff_numb_btn.setText("" + network.getNumberTariffs());
+        user_numb_btn.setText("" + network.calculateUserNumber());
     }
 
 

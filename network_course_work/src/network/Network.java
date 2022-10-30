@@ -33,10 +33,10 @@ public class Network {
 
     private void CreateList() throws IOException {
         tariffs = new ArrayList<>() {};
-        tariffs.add(new StartTariff(1,"1", "Start", 123, 3, 10));
-        tariffs.add( new StartTariff(2,"2", "Start", 12, 4, 15));
-        tariffs.add(new SuperTariff(3,"3", "Super", 55, 40, 150, 36, 66));
-        tariffs.add(new SuperNetTariff(4,"3", "SuperNet", 55,
+        tariffs.add(new StartTariff(1,"1", "Start",5, 123, 3, 10));
+        tariffs.add( new StartTariff(2,"2", "Start", 9,12, 4, 15));
+        tariffs.add(new SuperTariff(3,"3", "Super", 10,55, 40, 150, 36, 66));
+        tariffs.add(new SuperNetTariff(4,"3", "SuperNet", 20, 55,
                 40, 150, 36, 66, 999));
         /*tariffs.add();
         tariffs.add();
@@ -46,9 +46,19 @@ public class Network {
 
     }
 
-
+    public int getNumberTariffs() {
+        return tariffs.size();
+    }
     public List<BaseTariff> getTariffs() {
         return tariffs;
+    }
+
+    public int calculateUserNumber() {
+        int sumUsers = 0;
+        for (BaseTariff tariff: network.getTariffs()) {
+            sumUsers += tariff.getUser();
+        }
+        return sumUsers;
     }
 
     public void exit() {

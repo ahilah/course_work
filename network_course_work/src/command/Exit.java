@@ -21,7 +21,6 @@ public class Exit implements MenuCommand {
     @Override
     public List<BaseTariff> execute(List<String> pr) /*throws InterruptedException, SQLException*/ {
         network.exit();
-
         System.exit(0);
         return null;
     }

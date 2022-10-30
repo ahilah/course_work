@@ -4,9 +4,9 @@ public class SuperNetTariff extends BaseTariff {
     private double other;
     private double abroad;
     private double Internet;
-    public SuperNetTariff(int ID, String name, String type, int SMS, double thisN, int price, double other,
-                          double abroad, double Internet) {
-        super(ID, name,type, SMS, thisN, price);
+    public SuperNetTariff(int ID, String name, String type, int user, int SMS, double thisN, int price,
+                          double other, double abroad, double Internet) {
+        super(ID, name,type, user, SMS, thisN, price);
         this.other = other;
         this.abroad = abroad;
         this.Internet = Internet;

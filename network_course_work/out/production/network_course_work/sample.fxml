@@ -11,19 +11,20 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="627.0" prefWidth="842.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainMenu">
+<AnchorPane prefHeight="627.0" prefWidth="852.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainMenu">
    <children>
-      <TableView fx:id="tableTariffs" layoutX="3.0" layoutY="84.0" prefHeight="297.0" prefWidth="799.0" AnchorPane.bottomAnchor="300.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="30.0">
+      <TableView fx:id="tableTariffs" layoutX="3.0" layoutY="84.0" prefHeight="297.0" prefWidth="799.0" AnchorPane.bottomAnchor="300.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0">
         <columns>
           <TableColumn fx:id="ID" prefWidth="46.39999771118164" text="ID" />
-          <TableColumn fx:id="NAME" prefWidth="114.4000015258789" text="Tariff Name" />
-            <TableColumn fx:id="TYPE" prefWidth="81.5999755859375" text="Type" />
-            <TableColumn fx:id="SMS" prefWidth="81.5999755859375" text="SMS number" />
-            <TableColumn fx:id="This_Net" prefWidth="100.0" text="Minutes this net" />
-            <TableColumn fx:id="PRICE" prefWidth="72.0" text="Price" />
-            <TableColumn fx:id="Other_Net" minWidth="0.0" prefWidth="113.60003662109375" text="Minutes other Net" />
-            <TableColumn fx:id="ABROAD" prefWidth="94.400146484375" text="Minutes abroad" />
-            <TableColumn fx:id="Internet" prefWidth="114.39990234375" text="Mob Internet" />
+          <TableColumn fx:id="NAME" prefWidth="116.80002212524414" text="Name" />
+            <TableColumn fx:id="TYPE" prefWidth="85.60000610351562" text="Type" />
+            <TableColumn fx:id="users_col" prefWidth="73.60003662109375" text="Users" />
+            <TableColumn fx:id="SMS" prefWidth="65.5999755859375" text="SMS" />
+            <TableColumn fx:id="This_Net" prefWidth="96.800048828125" text="Minutes this" />
+            <TableColumn fx:id="PRICE" prefWidth="78.40005493164062" text="Price" />
+            <TableColumn fx:id="Other_Net" minWidth="0.0" prefWidth="91.2000732421875" text="Minutes other" />
+            <TableColumn fx:id="ABROAD" prefWidth="80.800048828125" text="Abroad" />
+            <TableColumn fx:id="Internet" prefWidth="110.4000244140625" text="Internet" />
         </columns>
       </TableView>
       <Button fx:id="show_all_btn" layoutX="394.0" layoutY="356.0" mnemonicParsing="false" onAction="#click" text="Show all tariffs" />
