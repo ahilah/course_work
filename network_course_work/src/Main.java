@@ -1,4 +1,6 @@
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Main {
@@ -7,10 +9,8 @@ public class Main {
         MainMenu mainMenu = new MainMenu();
         mainMenu.execute();
 
-
     }
 }
-
 
 
 //--module-path "D:\downloads\javaFX\javafx-sdk-19\lib" --add-modules javafx.controls,javafx.fxml

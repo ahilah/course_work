@@ -32,22 +32,27 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/downloads/javaFX/javafx-sdk-19/lib",
-    "project.structure.last.edited": "Libraries",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/programming/appliedProgramming/course_work/network_course_work/driver",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.side.proportion": "0.2"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlserver"
+    ]
   }
 }]]></component>
-  <component name="RunManager" selected="Application.MainMenu">
-    <configuration name="MainMenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MainMenu" />
-      <module name="network_course_work" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;D:\downloads\javaFX\javafx-sdk-19\lib&quot; --add-modules javafx.controls,javafx.fxml" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\programming\appliedProgramming\course_work\network_course_work\driver" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.SQLMethods">
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="18" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="network_course_work" />
       <option name="VM_PARAMETERS" value="--module-path &quot;D:\downloads\javaFX\javafx-sdk-19\lib&quot; --add-modules javafx.controls,javafx.fxml" />
@@ -55,12 +60,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MainMenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="18" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="MainMenu" />
+      <module name="network_course_work" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;D:\downloads\javaFX\javafx-sdk-19\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SQLMethods" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SQLMethods" />
+      <module name="network_course_work" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="Application.Unnamed" />
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.SQLMethods" />
       <item itemvalue="Application.MainMenu" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SQLMethods" />
         <item itemvalue="Application.MainMenu" />
       </list>
     </recent_temporary>
@@ -73,8 +97,13 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1667063597430</updated>
+      <workItem from="1667478689313" duration="3680000" />
+      <workItem from="1667525749591" duration="162000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

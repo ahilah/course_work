@@ -42,7 +42,7 @@ public class MainMenu extends Application {
         menuItems.put(Show.NAME, new Show(TP));
        ;*/
     }
-//users_col
+
     public void execute() throws InterruptedException, IOException, SQLException {
         launch();
     }
@@ -130,8 +130,7 @@ public class MainMenu extends Application {
     private Button sort_btn;
 
     @FXML
-    public void initialize()
-    {
+    public void initialize() {
         ID.setCellValueFactory(new PropertyValueFactory<BaseTariff, Integer>("ID"));
         NAME.setCellValueFactory(new PropertyValueFactory<BaseTariff, String>("name"));
         TYPE.setCellValueFactory(new PropertyValueFactory<BaseTariff, String>("type"));
@@ -158,7 +157,7 @@ public class MainMenu extends Application {
            showTariff(tariffData);
        } else if (event.getSource() == exit_prg) {
            cm = menuItems.get("exit");
-           cm.execute(List.of());
+           cm.execute(null);
        }
     }
 
