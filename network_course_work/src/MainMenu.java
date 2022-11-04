@@ -26,6 +26,8 @@ import static javafx.application.Application.launch;
 
 public class MainMenu extends Application {
     private static Network network;
+
+
     private NewTariff newTariff;
 
 
@@ -39,8 +41,10 @@ public class MainMenu extends Application {
         menuItems.put(Exit.NAME, new Exit(network));
         menuItems.put(UserNumber.NAME, new UserNumber(network));
         menuItems.put(Sort.NAME, new Sort(network));
+        menuItems.put(command.Delete.NAME, new command.Delete(network));
+
+
         /*menuItems.put(add.Add.NAME, new add.Add(TP));
-         menuItems.put(command.Delete.NAME, new command.Delete(TP));
         menuItems.put(Order.NAME, new Order(TP));
         menuItems.put(Agr.NAME, new Agr(TP));
         menuItems.put(Show.NAME, new Show(TP));
@@ -133,6 +137,10 @@ public class MainMenu extends Application {
     private Text user_numb_btn;
     @FXML
     private Button sort_btn;
+    @FXML
+    private Button delete_btn;
+    @FXML
+    private TextField tariffID_txt;
 
     @FXML
     public void initialize() {
@@ -151,7 +159,7 @@ public class MainMenu extends Application {
 
     @FXML
     void click(ActionEvent event) throws SQLException, IOException, InterruptedException {
-        BaseTariff tariff = null;
+        //BaseTariff tariff = null;
         tariffData.clear();
         MenuCommand cm;
         ResultSet rs;
@@ -163,14 +171,22 @@ public class MainMenu extends Application {
            rs = cm.execute(List.of("all"));
            showTariff(rs);
            //showTariff(tariffData);
-       } else if (event.getSource() == exit_prg) {
+       }
+       if (event.getSource() == exit_prg) {
            cm = menuItems.get("exit");
            cm.execute(List.of());
-       } else if (event.getSource() == sort_btn) {
+       }
+       if (event.getSource() == sort_btn) {
            cm = menuItems.get("sort");
            rs = cm.execute(List.of());
            showTariff(rs);
        }
+       if (event.getSource() == delete_btn) {
+           cm = menuItems.get("delete");
+           rs = cm.execute(Arrays.asList(tariffID_txt.getText()));
+           showTariff(rs);
+       }
+
     }
 
     private void showTariff(ResultSet rs) throws SQLException {

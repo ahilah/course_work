@@ -57,8 +57,8 @@
       </Pane>
       <Pane layoutX="580.0" layoutY="419.0" prefHeight="194.0" prefWidth="218.0" style="-fx-background-color: #ffffff;">
          <children>
-            <Button layoutX="70.0" layoutY="155.0" mnemonicParsing="false" text="Delete tariff" />
-            <TextField layoutX="41.0" layoutY="72.0" text="1" />
+            <Button fx:id="delete_btn" layoutX="70.0" layoutY="155.0" mnemonicParsing="false" onAction="#click" text="Delete tariff" />
+            <TextField fx:id="tariffID_txt" layoutX="41.0" layoutY="72.0" onAction="#click" text="1" />
             <Text layoutX="85.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tariff ID" textAlignment="CENTER">
                <font>
                   <Font size="14.0" />

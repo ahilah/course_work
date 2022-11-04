@@ -11,7 +11,7 @@ public class Network {
     private final String companyName;
     private final String companyNumber;
     private final String companyEmail;
-    private List<BaseTariff> tariffs;
+    //private List<BaseTariff> tariffs;
     public static final String DEFAULT_DRIVER_CLASS = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 
     public static final String DEFAULT_URL = "jdbc:sqlserver://DESKTOP-J4UMDEH:1433;databaseName=Deanery";
@@ -46,9 +46,9 @@ public class Network {
             return Integer.parseInt(rs.getString("S"));
         return 0;
     }
-    public List<BaseTariff> getTariffs() {
+    /*public List<BaseTariff> getTariffs() {
         return tariffs;
-    }
+    }*/
 
     public int calculateUserNumber() throws SQLException {
         Statement stat = con.createStatement();
@@ -71,6 +71,16 @@ public class Network {
     public ResultSet sortTariffs() throws SQLException {
         Statement stat = con.createStatement();
         return stat.executeQuery("SELECT * FROM Tariff ORDER BY Price ASC");
+    }
+    public ResultSet removeTariff(int ID) throws SQLException {
+        Statement stat = con.createStatement();
+        stat.executeUpdate("DELETE FROM Tariff WHERE ID = " + ID);
+        System.out.println("\n\nworks");
+        return printAllTariffs();
+    }
+    public boolean isTariffIDExists(int ID) throws SQLException {
+        Statement stat = con.createStatement();
+        return stat.executeQuery("SELECT * FROM Tariff WHERE ID = " + ID) != null;
     }
     public void exit() throws SQLException {
         con.close();
