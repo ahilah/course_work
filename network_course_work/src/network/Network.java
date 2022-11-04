@@ -1,13 +1,9 @@
 package network;
 
 import Tariff.BaseTariff;
-import Tariff.StartTariff;
-import Tariff.SuperNetTariff;
-import Tariff.SuperTariff;
 
 import java.io.IOException;
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Network {
@@ -37,12 +33,55 @@ public class Network {
         this.companyName = companyName;
         this.companyNumber = companyNumber;
         this.companyEmail = companyEmail;
-        con = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-J4UMDEH:1433;databaseName=Deanery;user=student;password=2022;encrypt=true;trustServerCertificate=true");
+        con = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-J4UMDEH:1433;databaseName=Network;user=student;password=2022;encrypt=true;trustServerCertificate=true");
         System.out.println("open");
-        //CreateList();
     }
 
-    /*private void CreateList() throws IOException {
+
+
+    public int getNumberTariffs() throws SQLException {
+        Statement stat = con.createStatement();
+        ResultSet rs = stat.executeQuery("SELECT COUNT(ID) AS S FROM Tariff");
+        if (rs.next())
+            return Integer.parseInt(rs.getString("S"));
+        return 0;
+    }
+    public List<BaseTariff> getTariffs() {
+        return tariffs;
+    }
+
+    public int calculateUserNumber() throws SQLException {
+        Statement stat = con.createStatement();
+        ResultSet rs = stat.executeQuery("SELECT SUM(Users) AS S FROM Tariff");
+        if (rs.next())
+            return Integer.parseInt(rs.getString("S"));
+        return 0;
+
+        /*int sumUsers = 0;
+        for (BaseTariff tariff: network.getTariffs()) {
+            sumUsers += tariff.getUser();
+        }
+        return sumUsers;*/
+    }
+    public ResultSet printAllTariffs() throws SQLException {
+        Statement stat = con.createStatement();
+        return stat.executeQuery("SELECT * \n" +
+                "  FROM [Network].[dbo].[Tariff]");
+    }
+    public ResultSet sortTariffs() throws SQLException {
+        Statement stat = con.createStatement();
+        return stat.executeQuery("SELECT * FROM Tariff ORDER BY Price ASC");
+    }
+    public void exit() throws SQLException {
+        con.close();
+    }
+
+}
+
+
+/*
+    //CreateList();private void CreateList() throws IOException {
+
         tariffs = new ArrayList<>() {};
         tariffs.add(new StartTariff(1,"1", "Start",5, 123, 3, 10));
         tariffs.add( new StartTariff(2,"2", "Start", 9,12, 4, 15));
@@ -56,30 +95,3 @@ public class Network {
 
 
     }*/
-
-    public int getNumberTariffs() {
-        return tariffs.size();
-    }
-    public List<BaseTariff> getTariffs() {
-        return tariffs;
-    }
-
-    public int calculateUserNumber() {
-        int sumUsers = 0;
-        for (BaseTariff tariff: network.getTariffs()) {
-            sumUsers += tariff.getUser();
-        }
-        return sumUsers;
-    }
-
-    public ResultSet printAllTariffs() throws SQLException {
-        Statement stat = con.createStatement();
-        return stat.executeQuery("SELECT * \n" +
-                "  FROM [Network].[dbo].[Tariff]");
-    }
-
-    public void exit() throws SQLException {
-        con.close();
-    }
-
-}

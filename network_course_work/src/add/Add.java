@@ -1,4 +1,4 @@
-package command;
+package add;
 
 public class Add {
 }

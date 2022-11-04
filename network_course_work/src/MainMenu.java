@@ -1,4 +1,5 @@
 import Tariff.*;
+import add.NewTariff;
 import command.*;
 import command.commandable.MenuCommand;
 import javafx.application.Application;
@@ -14,6 +15,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import network.Network;
+import command.View;
 
 import java.io.IOException;
 import java.sql.ResultSet;
@@ -23,20 +25,21 @@ import java.util.*;
 import static javafx.application.Application.launch;
 
 public class MainMenu extends Application {
-
     private static Network network;
-
+    private NewTariff newTariff;
 
 
     private LinkedHashMap<String, MenuCommand> menuItems;
     public MainMenu() throws IOException, SQLException {
+        newTariff = new NewTariff();
         network = Network.getNetwork("LvivNet", "+380666990915",
                 "lvivnet@microsoft.com");
         menuItems = new LinkedHashMap<>();
         menuItems.put(View.NAME, new View(network));
         menuItems.put(Exit.NAME, new Exit(network));
         menuItems.put(UserNumber.NAME, new UserNumber(network));
-        /*menuItems.put(command.Add.NAME, new command.Add(TP));
+        menuItems.put(Sort.NAME, new Sort(network));
+        /*menuItems.put(add.Add.NAME, new add.Add(TP));
          menuItems.put(command.Delete.NAME, new command.Delete(TP));
         menuItems.put(Order.NAME, new Order(TP));
         menuItems.put(Agr.NAME, new Agr(TP));
@@ -163,6 +166,10 @@ public class MainMenu extends Application {
        } else if (event.getSource() == exit_prg) {
            cm = menuItems.get("exit");
            cm.execute(List.of());
+       } else if (event.getSource() == sort_btn) {
+           cm = menuItems.get("sort");
+           rs = cm.execute(List.of());
+           showTariff(rs);
        }
     }
 
@@ -172,43 +179,23 @@ public class MainMenu extends Application {
         while (rs.next())
         {
             if (rs.getString("Type").contains("Start")) {
-                tariff = new StartTariff(rs.getInt("ID"),
-                        rs.getString("Name"),
-                        rs.getString("Type"),
-                        rs.getInt("Users"),
-                        rs.getInt("SMS"),
-                        rs.getInt("MinutesThisNet"),
-                        rs.getInt("Price"));
+                tariff = newTariff.newStartTariff(rs);
             }
             else if (rs.getString("Type").contains("Net")) {
-                tariff = new SuperNetTariff(rs.getInt("ID"),
-                        rs.getString("Name"),
-                        rs.getString("Type"),
-                        rs.getInt("Users"),
-                        rs.getInt("SMS"),
-                        rs.getInt("MinutesThisNet"),
-                        rs.getInt("Price"),
-                        rs.getInt("MinutesOtherNet"),
-                        rs.getInt("Abroad"),
-                        rs.getInt("Internet"));
+                tariff = newTariff.newSuperNetTariff(rs);
             }
             else {
-                tariff = new SuperTariff(rs.getInt("ID"),
-                        rs.getString("Name"),
-                        rs.getString("Type"),
-                        rs.getInt("Users"),
-                        rs.getInt("SMS"),
-                        rs.getInt("MinutesThisNet"),
-                        rs.getInt("Price"),
-                        rs.getInt("MinutesOtherNet"),
-                        rs.getInt("Abroad"));
+                tariff = newTariff.newSuperTariff(rs);
             }
             tariffData.add(tariff);
         }
 
         tableTariffs.setItems(tariffData);
-        //tariff_numb_btn.setText("" + network.getNumberTariffs());
-        //user_numb_btn.setText("" + network.calculateUserNumber());
+        showInfoNumbers();
+    }
+    private void showInfoNumbers() throws SQLException {
+        tariff_numb_btn.setText("" + network.getNumberTariffs());
+        user_numb_btn.setText("" + network.calculateUserNumber());
     }
 
 

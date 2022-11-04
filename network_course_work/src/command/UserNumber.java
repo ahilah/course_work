@@ -18,8 +18,7 @@ public class UserNumber implements MenuCommand {
 
     @Override
     public ResultSet execute(List<String> pr) {
-
-        return null;
+        return null;//network.calculateUserNumber();
     }
 
     public int calculateUserNumber() {
