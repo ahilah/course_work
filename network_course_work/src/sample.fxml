@@ -15,8 +15,8 @@
    <children>
       <TableView fx:id="tableTariffs" layoutX="3.0" layoutY="84.0" prefHeight="297.0" prefWidth="799.0" AnchorPane.bottomAnchor="300.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0">
         <columns>
-          <TableColumn fx:id="ID" prefWidth="46.39999771118164" text="ID" />
-          <TableColumn fx:id="NAME" prefWidth="116.80002212524414" text="Name" />
+           <TableColumn fx:id="ID" prefWidth="46.39999771118164" text="ID" />
+            <TableColumn fx:id="NAME" prefWidth="116.80002212524414" text="Name" />
             <TableColumn fx:id="TYPE" prefWidth="85.60000610351562" text="Type" />
             <TableColumn fx:id="users_col" prefWidth="73.60003662109375" text="Users" />
             <TableColumn fx:id="SMS" prefWidth="65.5999755859375" text="SMS" />
@@ -25,6 +25,7 @@
             <TableColumn fx:id="Other_Net" minWidth="0.0" prefWidth="91.2000732421875" text="Minutes other" />
             <TableColumn fx:id="ABROAD" prefWidth="80.800048828125" text="Abroad" />
             <TableColumn fx:id="Internet" prefWidth="110.4000244140625" text="Internet" />
+
         </columns>
       </TableView>
       <Button fx:id="show_all_btn" layoutX="394.0" layoutY="356.0" mnemonicParsing="false" onAction="#click" text="Show all tariffs" />

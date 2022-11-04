@@ -4,6 +4,8 @@ import Tariff.BaseTariff;
 import command.commandable.MenuCommand;
 import network.Network;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 public class View implements MenuCommand {
@@ -15,10 +17,10 @@ public class View implements MenuCommand {
         this.network = network;
     }
 
-    public List<BaseTariff> execute(List<String> pr)  {
+    public ResultSet execute(List<String> pr) throws SQLException {
         if ("all".equals(pr.get(0)))
         {
-            return network.getTariffs();
+            return network.printAllTariffs();
         }
         /*else if (pr.size() == 0)
         {

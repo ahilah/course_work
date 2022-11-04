@@ -4,6 +4,7 @@ import Tariff.BaseTariff;
 import command.commandable.MenuCommand;
 import network.Network;
 
+import java.sql.ResultSet;
 import java.util.List;
 
 public class UserNumber implements MenuCommand {
@@ -16,7 +17,7 @@ public class UserNumber implements MenuCommand {
     }
 
     @Override
-    public List<BaseTariff> execute(List<String> pr) {
+    public ResultSet execute(List<String> pr) {
 
         return null;
     }

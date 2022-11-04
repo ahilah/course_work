@@ -33,7 +33,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/programming/appliedProgramming/course_work/network_course_work/driver",
+    "last_opened_file_path": "D:/programming/idkwt/PP_course_work-main",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2"
@@ -49,10 +49,9 @@
       <recent name="D:\programming\appliedProgramming\course_work\network_course_work\driver" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.SQLMethods">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="18" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="network_course_work" />
       <option name="VM_PARAMETERS" value="--module-path &quot;D:\downloads\javaFX\javafx-sdk-19\lib&quot; --add-modules javafx.controls,javafx.fxml" />
@@ -62,7 +61,6 @@
     </configuration>
     <configuration name="MainMenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="18" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="MainMenu" />
       <module name="network_course_work" />
       <option name="VM_PARAMETERS" value="--module-path &quot;D:\downloads\javaFX\javafx-sdk-19\lib&quot; --add-modules javafx.controls,javafx.fxml" />

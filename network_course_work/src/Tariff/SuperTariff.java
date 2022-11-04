@@ -1,8 +1,8 @@
 package Tariff;
 
 public class SuperTariff extends BaseTariff {
-    private double other;
-    private double abroad;
+    private final double other;
+    private final double abroad;
 
     public SuperTariff(int ID, String name, String type,int user, int SMS, double thisN, int price,
                        double other, double abroad) {
@@ -16,12 +16,10 @@ public class SuperTariff extends BaseTariff {
     public double getAbroad() {
         return abroad;
     }
-
-
     @Override
     public String toString() {
         return "Super Tariff " + super.toString() +
                 ",\n\t\t\tnumber of minutes on other network: " + this.other +
-                ",\n\t\t\tnumber of minutes on other countries: " + this.abroad + ")";
+                /*",\n\t\t\tnumber of minutes on other countries: " + this.abroad +*/ ")";
     }
 }

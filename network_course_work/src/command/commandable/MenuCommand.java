@@ -8,5 +8,5 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface MenuCommand {
-    List<BaseTariff> execute(List<String> pr) /*throws InterruptedException, IOException, SQLException*/;
+    ResultSet execute(List<String> pr) throws InterruptedException, IOException, SQLException;
 }

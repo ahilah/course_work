@@ -1,16 +1,13 @@
 package Tariff;
 
 public class BaseTariff {
-    private int ID;
-    private String name;
-    private String type;
-    private int SMS;
-
-    private double thisN;
-    private int price;
-
+    private final int ID;
+    private final String name;
+    private final String type;
+    private final int SMS;
+    private final double thisN;
+    private final int price;
     private int user = 0;
-
     BaseTariff(int tariffID, String name, String type, int user, int SMS, double thisN, int price) {
         this.name = name;
         this.type = type;
@@ -35,24 +32,19 @@ public class BaseTariff {
     public double getThisN() {
         return thisN;
     }
-
-
     public void setUser(int user) {
         this.user = user;
     }
-
     public int getID() {
         return ID;
     }
-
     public String getName() {
         return name;
     }
-
     public String getType() {
         return type;
     }
-
+    @Override
     public String toString() {
         return  this.name + "\n\t\t\t(number of SMS: " + this.SMS +
                 ",\n\t\t\tnumber of minutes on this operator: " + this.thisN +
