@@ -41,16 +41,11 @@ public class MainMenu extends Application {
     private void fillCommands() {
         menuItems.put(View.NAME, new View(network));
         menuItems.put(Exit.NAME, new Exit(network));
-        menuItems.put(UserNumber.NAME, new UserNumber(network));
         menuItems.put(Sort.NAME, new Sort(network));
         menuItems.put(command.Delete.NAME, new command.Delete(network));
 
 
-        /*menuItems.put(add.Add.NAME, new add.Add(TP));
-        menuItems.put(Order.NAME, new Order(TP));
-        menuItems.put(Agr.NAME, new Agr(TP));
-        menuItems.put(Show.NAME, new Show(TP));
-       ;*/
+        /*menuItems.put(add.Add.NAME, new add.Add(TP));*/
     }
 
     public void execute() throws InterruptedException, IOException, SQLException {
@@ -84,12 +79,12 @@ public class MainMenu extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         main_stage = stage;
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("sample.fxml")));
-        /*adding_sc = FXMLLoader.load(MainMenu.class.getResource("adding.fxml"));
-        price_sc = FXMLLoader.load(MainMenu.class.getResource("price.fxml"));*/
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("mainStage.fxml")));
+        //adding_sc = FXMLLoader.load(Objects.requireNonNull(MainMenu.class.getResource("addStartTariff.fxml")));
+        /*price_sc = FXMLLoader.load(MainMenu.class.getResource("price.fxml"));*/
         main_scene = new Scene(root);
-        /*addition_scene = new Scene(adding_sc, 1000, 800);
-        price_scene = new Scene(price_sc, 1000, 800);*/
+        //addition_scene = new Scene(adding_sc);
+        /*price_scene = new Scene(price_sc, 1000, 800);*/
         main_stage.setTitle("Курсова робота Гілети Анастасії КН-201");
         main_stage.setScene(main_scene);
         main_stage.show();
@@ -102,7 +97,6 @@ public class MainMenu extends Application {
     private TableColumn<BaseTariff, Integer> ID;
     @FXML
     private TableColumn <BaseTariff, Integer> users_col;
-    //public TableColumn <BaseTariff, Integer>internet_id;
     @FXML
     private TableColumn<BaseTariff, Integer> Internet;
     @FXML
@@ -161,6 +155,8 @@ public class MainMenu extends Application {
     private RadioButton abroad_rbt;
     @FXML
     private RadioButton otherNet_rbt;
+    @FXML
+    private Button cancel_btn;
 
     @FXML
     public void initialize() {
@@ -190,8 +186,6 @@ public class MainMenu extends Application {
            cm = menuItems.get("view");
            rs = cm.execute(List.of("all"));
            showTariff(rs);
-           //showTariff(tariffData);
-           showInfoNumbers();
        }
        if (event.getSource() == exit_prg) {
            cm = menuItems.get("exit");
@@ -201,13 +195,11 @@ public class MainMenu extends Application {
            cm = menuItems.get("sort");
            rs = cm.execute(List.of());
            showTariff(rs);
-           showInfoNumbers();
        }
        if (event.getSource() == delete_btn) {
            cm = menuItems.get("delete");
            rs = cm.execute(Arrays.asList(tariffID_txt.getText()));
            showTariff(rs);
-           showInfoNumbers();
        }
         if (event.getSource() == show_between_btn) {
             cm = menuItems.get("view");
@@ -228,10 +220,19 @@ public class MainMenu extends Application {
                     rs = cm.execute(Arrays.asList("internet", "" + lower, "" + upper));
                 }
                 showTariff(rs);
-                showInfoNumbers();
             } catch (InterruptedException | IOException | SQLException e) {
                 e.printStackTrace();
             }
+        }
+        if (event.getSource() == add_tariff) {
+            if (start_rbt.isSelected()) {
+                main_stage.setScene(addition_scene);
+                main_stage.show();
+            }
+        }
+        if (event.getSource() == cancel_btn) {
+            main_stage.setScene(main_scene);
+            main_stage.show();
         }
 
     }
@@ -251,7 +252,7 @@ public class MainMenu extends Application {
                 tariffData.add(tariff);
             }
             tableTariffs.setItems(tariffData);
-            //showInfoNumbers();
+            showInfoNumbers();
         }
         catch (NullPointerException e) {
             System.out.println("\n\t" + RED_UNDERLINED + "Null pointer!" + ANSI_RESET);

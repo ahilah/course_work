@@ -31,7 +31,5 @@ public class View implements MenuCommand {
         } else {
             return network.printTariffsWithInternet(Integer.parseInt(pr.get(1)), Integer.parseInt(pr.get(2)));
         }
-        // return null;
     }
-
 }

@@ -14,6 +14,6 @@ public class Sort implements MenuCommand {
         this.network = network;
     }
     public ResultSet execute(List<String> pr) throws SQLException {
-            return network.sortTariffs();
+        return network.sortTariffs();
     }
 }

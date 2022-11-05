@@ -27,6 +27,5 @@ public class Delete implements MenuCommand {
         }
         if (!network.isTariffIDExists(tariffID)) return null;
         return network.removeTariff(Integer.parseInt(pr.get(0)));
-         // null;
     }
 }

@@ -56,6 +56,13 @@ public class Network {
             return Integer.parseInt(rs.getString("S"));
         return 0;
     }
+    public int getNumberTariffsParam(String nameCol) throws SQLException {
+        Statement stat = con.createStatement();
+        ResultSet rs = stat.executeQuery("SELECT COUNT("+ nameCol + ") AS S FROM Tariff");
+        if (rs.next())
+            return Integer.parseInt(rs.getString("S"));
+        return 0;
+    }
     /*public List<BaseTariff> getTariffs() {
         return tariffs;
     }*/
@@ -96,21 +103,24 @@ public class Network {
     }
 
     public ResultSet printTariffsWithSMS(int min, int max) throws SQLException {
-        PreparedStatement stat = con.prepareStatement("SELECT * FROM Tariff WHERE SMS >= ? AND SMS <= ?");
+        PreparedStatement stat = con.prepareStatement("SELECT * FROM Tariff" +
+                " WHERE SMS >= ? AND SMS <= ?");
         stat.setInt(1, min);
         stat.setInt(2, max);
         return stat.executeQuery();
     }
 
     public ResultSet printTariffsWithPrice(int min, int max) throws SQLException {
-        PreparedStatement stat = con.prepareStatement("SELECT * FROM Tariff WHERE Price >= ? AND Price <= ?");
+        PreparedStatement stat = con.prepareStatement("SELECT * FROM Tariff " +
+                "WHERE Price >= ? AND Price <= ?");
         stat.setInt(1, min);
         stat.setInt(2, max);
         return stat.executeQuery();
     }
 
     public ResultSet printTariffsWithMinThisNet(int min, int max) throws SQLException {
-        PreparedStatement stat = con.prepareStatement("SELECT * FROM Tariff WHERE MinutesThisNet >= ? AND MinutesThisNet <= ?");
+        PreparedStatement stat = con.prepareStatement("SELECT * FROM Tariff " +
+                "WHERE MinutesThisNet >= ? AND MinutesThisNet <= ?");
         stat.setInt(1, min);
         stat.setInt(2, max);
         return stat.executeQuery();
