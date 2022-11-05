@@ -13,7 +13,7 @@
 
 <AnchorPane prefHeight="627.0" prefWidth="852.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainMenu">
    <children>
-      <TableView fx:id="tableTariffs" layoutX="10.0" layoutY="32.0" prefHeight="297.0" prefWidth="833.0" AnchorPane.bottomAnchor="298.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="32.0">
+      <TableView fx:id="tableTariffs" layoutX="10.0" layoutY="14.0" prefHeight="297.0" prefWidth="833.0" AnchorPane.bottomAnchor="316.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="14.0">
         <columns>
           <TableColumn fx:id="ID" prefWidth="75.19997787475586" text="ID" />
           <TableColumn fx:id="NAME" prefWidth="110.39998626708984" text="Name" />
@@ -27,55 +27,58 @@
             <TableColumn fx:id="Internet" maxWidth="500.0" prefWidth="78.0" text="Internet" />
         </columns>
       </TableView>
-      <Button fx:id="show_all_btn" layoutX="394.0" layoutY="356.0" mnemonicParsing="false" onAction="#click" text="Show all tariffs" />
-      <Button fx:id="exit_prg" layoutX="728.0" layoutY="356.0" mnemonicParsing="false" onAction="#click" prefHeight="26.0" prefWidth="57.0" style="-fx-background-color: Ff0000;" text="Exit" textFill="#fffefe" />
-      <Text fill="WHITE" layoutX="33.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="General number of tariffs:">
+      <Button fx:id="show_all_btn" layoutX="396.0" layoutY="334.0" mnemonicParsing="false" onAction="#click" text="Show all tariffs" />
+      <Button fx:id="exit_prg" layoutX="733.0" layoutY="334.0" mnemonicParsing="false" onAction="#click" prefHeight="26.0" prefWidth="57.0" style="-fx-background-color: Ff0000;" text="Exit" textFill="#fffefe" />
+      <Text fill="WHITE" layoutX="32.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="General number of tariffs:">
          <font>
             <Font size="17.0" />
          </font>
       </Text>
-      <Text fill="#fafafa" layoutX="35.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0" text="General number of users:">
+      <Text fill="#fafafa" layoutX="33.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="General number of users:">
          <font>
             <Font size="17.0" />
          </font>
       </Text>
-      <Pane layoutX="26.0" layoutY="419.0" prefHeight="194.0" prefWidth="246.0" style="-fx-background-color: #ffffff;">
+      <Pane layoutX="14.0" layoutY="403.0" prefHeight="210.0" prefWidth="327.0" style="-fx-background-color: #ffffff;" AnchorPane.leftAnchor="10.0">
          <children>
             <RadioButton fx:id="price_rbt" layoutX="26.0" layoutY="67.0" mnemonicParsing="false" onAction="#click" text="Price">
                <toggleGroup>
                   <ToggleGroup fx:id="showGP" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="sms_rbt" layoutX="26.0" layoutY="14.0" mnemonicParsing="false" onAction="#click" selected="true" text="SMS number" toggleGroup="$showGP" />
+            <RadioButton fx:id="sms_rbt" layoutX="28.0" layoutY="14.0" mnemonicParsing="false" onAction="#click" selected="true" text="SMS number" toggleGroup="$showGP" />
             <TextField fx:id="lower_te" layoutX="83.0" layoutY="97.0" onAction="#click" text="1" />
             <TextField fx:id="upper_te" layoutX="83.0" layoutY="130.0" onAction="#click" text="10" />
-            <RadioButton fx:id="minutes_rbt" layoutX="26.0" layoutY="42.0" mnemonicParsing="false" onAction="#click" text="Minutes this tariff" toggleGroup="$showGP" />
-            <Button fx:id="show_between_btn" layoutX="83.0" layoutY="168.0" mnemonicParsing="false" onAction="#click" prefHeight="17.0" prefWidth="45.0" text="Show" />
+            <RadioButton fx:id="thisNet_rbt" layoutX="26.0" layoutY="42.0" mnemonicParsing="false" onAction="#click" text="Minutes this tariff" toggleGroup="$showGP" />
+            <Button fx:id="show_between_btn" layoutX="125.0" layoutY="171.0" mnemonicParsing="false" onAction="#click" prefHeight="25.0" prefWidth="78.0" text="Show tariffs" />
             <Text layoutX="26.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From" wrappingWidth="35.200000000000045" />
             <Text layoutX="26.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To" />
+            <RadioButton fx:id="otherNet_rbt" layoutX="178.0" layoutY="42.0" mnemonicParsing="false" onAction="#click" text="Minutes other tariff" toggleGroup="$showGP" />
+            <RadioButton fx:id="abroad_rbt" layoutX="178.0" layoutY="14.0" mnemonicParsing="false" onAction="#click" text="Abroad" toggleGroup="$showGP" />
+            <RadioButton fx:id="internet_rbt" layoutX="176.0" layoutY="67.0" mnemonicParsing="false" onAction="#click" text="Internet" toggleGroup="$showGP" />
          </children>
       </Pane>
-      <Pane layoutX="580.0" layoutY="419.0" prefHeight="194.0" prefWidth="218.0" style="-fx-background-color: #ffffff;">
+      <Pane layoutX="619.0" layoutY="403.0" prefHeight="210.0" prefWidth="218.0" style="-fx-background-color: #ffffff;" AnchorPane.rightAnchor="10.0">
          <children>
-            <Button fx:id="delete_btn" layoutX="70.0" layoutY="155.0" mnemonicParsing="false" onAction="#click" text="Delete tariff" />
-            <TextField fx:id="tariffID_txt" layoutX="41.0" layoutY="72.0" onAction="#click" text="1" />
-            <Text layoutX="85.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tariff ID" textAlignment="CENTER">
+            <Button fx:id="delete_btn" layoutX="70.0" layoutY="171.0" mnemonicParsing="false" onAction="#click" text="Delete tariff" />
+            <TextField fx:id="tariffID_txt" layoutX="41.0" layoutY="86.0" onAction="#click" text="1" />
+            <Text layoutX="85.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tariff ID" textAlignment="CENTER">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
          </children>
       </Pane>
-      <Pane layoutX="309.0" layoutY="419.0" prefHeight="194.0" prefWidth="218.0" style="-fx-background-color: #ffffff;">
+      <Pane layoutX="361.0" layoutY="403.0" prefHeight="210.0" prefWidth="239.0" style="-fx-background-color: #ffffff;">
          <children>
-            <Button fx:id="add_tariff" layoutX="67.0" layoutY="155.0" mnemonicParsing="false" onAction="#click" text="Add tariff" />
+            <Button fx:id="add_tariff" layoutX="67.0" layoutY="171.0" mnemonicParsing="false" onAction="#click" prefHeight="25.0" prefWidth="83.0" text="Add tariff" />
             <RadioButton fx:id="start_rbt" layoutX="36.0" layoutY="49.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="83.0" selected="true" text="Start tariff">
                <toggleGroup>
                   <ToggleGroup fx:id="addTariff" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="super_rbt" layoutX="36.0" layoutY="80.0" mnemonicParsing="false" text="Super Tariff" toggleGroup="$addTariff" />
-            <RadioButton fx:id="net_rbt" layoutX="36.0" layoutY="117.0" mnemonicParsing="false" text="Super Net Tariff" toggleGroup="$addTariff" />
+            <RadioButton fx:id="super_rbt" layoutX="36.0" layoutY="87.0" mnemonicParsing="false" text="Super Tariff" toggleGroup="$addTariff" />
+            <RadioButton fx:id="net_rbt" layoutX="36.0" layoutY="125.0" mnemonicParsing="false" text="Super Net Tariff" toggleGroup="$addTariff" />
             <Text layoutX="41.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose tariff type" textAlignment="CENTER" wrappingWidth="135.625">
                <font>
                   <Font size="14.0" />
@@ -83,16 +86,16 @@
             </Text>
          </children>
       </Pane>
-      <Text fx:id="tariff_numb_btn" fill="WHITE" layoutX="236.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+      <Text fx:id="tariff_numb_btn" fill="WHITE" layoutX="231.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fx:id="user_numb_btn" fill="WHITE" layoutX="236.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+      <Text fx:id="user_numb_btn" fill="WHITE" layoutX="231.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Button fx:id="sort_btn" layoutX="527.0" layoutY="357.0" mnemonicParsing="false" onAction="#click" text="Sort by price" />
+      <Button fx:id="sort_btn" layoutX="529.0" layoutY="334.0" mnemonicParsing="false" onAction="#click" text="Sort by price" />
    </children>
 </AnchorPane>

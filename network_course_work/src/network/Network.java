@@ -1,10 +1,7 @@
 package network;
 
-import Tariff.BaseTariff;
-
 import java.io.IOException;
 import java.sql.*;
-import java.util.List;
 
 import static command.Delete.ANSI_RESET;
 import static command.Delete.RED_UNDERLINED;
@@ -114,6 +111,30 @@ public class Network {
 
     public ResultSet printTariffsWithMinThisNet(int min, int max) throws SQLException {
         PreparedStatement stat = con.prepareStatement("SELECT * FROM Tariff WHERE MinutesThisNet >= ? AND MinutesThisNet <= ?");
+        stat.setInt(1, min);
+        stat.setInt(2, max);
+        return stat.executeQuery();
+    }
+
+    public ResultSet printTariffsWithMinOtherNet(int min, int max) throws SQLException {
+        PreparedStatement stat = con.prepareStatement("SELECT * FROM Tariff " +
+                "WHERE MinutesOtherNet >= ? AND MinutesOtherNet <= ?");
+        stat.setInt(1, min);
+        stat.setInt(2, max);
+        return stat.executeQuery();
+    }
+
+    public ResultSet printTariffsWithAbroad(int min, int max) throws SQLException {
+        PreparedStatement stat = con.prepareStatement("SELECT * FROM Tariff " +
+                "WHERE Abroad >= ? AND Abroad <= ?");
+        stat.setInt(1, min);
+        stat.setInt(2, max);
+        return stat.executeQuery();
+    }
+
+    public ResultSet printTariffsWithInternet(int min, int max) throws SQLException {
+        PreparedStatement stat = con.prepareStatement("SELECT * FROM Tariff " +
+                "WHERE Internet >= ? AND Internet <= ?");
         stat.setInt(1, min);
         stat.setInt(2, max);
         return stat.executeQuery();

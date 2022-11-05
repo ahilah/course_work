@@ -150,11 +150,17 @@ public class MainMenu extends Application {
     @FXML
     private TextField tariffID_txt;
     @FXML
-    private RadioButton minutes_rbt;
+    private RadioButton thisNet_rbt;
     @FXML
     private RadioButton sms_rbt;
     @FXML
     private RadioButton price_rbt;
+    @FXML
+    private RadioButton internet_rbt;
+    @FXML
+    private RadioButton abroad_rbt;
+    @FXML
+    private RadioButton otherNet_rbt;
 
     @FXML
     public void initialize() {
@@ -185,6 +191,7 @@ public class MainMenu extends Application {
            rs = cm.execute(List.of("all"));
            showTariff(rs);
            //showTariff(tariffData);
+           showInfoNumbers();
        }
        if (event.getSource() == exit_prg) {
            cm = menuItems.get("exit");
@@ -194,25 +201,34 @@ public class MainMenu extends Application {
            cm = menuItems.get("sort");
            rs = cm.execute(List.of());
            showTariff(rs);
+           showInfoNumbers();
        }
        if (event.getSource() == delete_btn) {
            cm = menuItems.get("delete");
            rs = cm.execute(Arrays.asList(tariffID_txt.getText()));
            showTariff(rs);
+           showInfoNumbers();
        }
         if (event.getSource() == show_between_btn) {
             cm = menuItems.get("view");
             try {
                 int lower = Integer.parseInt(lower_te.getText());
                 int upper = Integer.parseInt(upper_te.getText());
-                if (minutes_rbt.isSelected()) {
-                    rs = cm.execute(Arrays.asList("minutes", "" + lower, "" + upper));
+                if (thisNet_rbt.isSelected()) {
+                    rs = cm.execute(Arrays.asList("this", "" + lower, "" + upper));
                 } else if (sms_rbt.isSelected()) {
                     rs = cm.execute(Arrays.asList("sms", "" + lower, "" + upper));
-                } else {
+                } else if (price_rbt.isSelected()){
                     rs = cm.execute(Arrays.asList("price", "" + lower, "" + upper));
+                } else if (otherNet_rbt.isSelected()) {
+                    rs = cm.execute(Arrays.asList("other", "" + lower, "" + upper));
+                } else if (abroad_rbt.isSelected()) {
+                    rs = cm.execute(Arrays.asList("abroad", "" + lower, "" + upper));
+                } else {
+                    rs = cm.execute(Arrays.asList("internet", "" + lower, "" + upper));
                 }
                 showTariff(rs);
+                showInfoNumbers();
             } catch (InterruptedException | IOException | SQLException e) {
                 e.printStackTrace();
             }
@@ -235,7 +251,7 @@ public class MainMenu extends Application {
                 tariffData.add(tariff);
             }
             tableTariffs.setItems(tariffData);
-            showInfoNumbers();
+            //showInfoNumbers();
         }
         catch (NullPointerException e) {
             System.out.println("\n\t" + RED_UNDERLINED + "Null pointer!" + ANSI_RESET);
