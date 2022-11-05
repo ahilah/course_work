@@ -80,10 +80,10 @@ public class MainMenu extends Application {
     public void start(Stage stage) throws Exception {
         main_stage = stage;
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("mainStage.fxml")));
-        //adding_sc = FXMLLoader.load(Objects.requireNonNull(MainMenu.class.getResource("addStartTariff.fxml")));
+        adding_sc = FXMLLoader.load(Objects.requireNonNull(MainMenu.class.getResource("addStartTariff.fxml")));
         /*price_sc = FXMLLoader.load(MainMenu.class.getResource("price.fxml"));*/
         main_scene = new Scene(root);
-        //addition_scene = new Scene(adding_sc);
+        addition_scene = new Scene(adding_sc);
         /*price_scene = new Scene(price_sc, 1000, 800);*/
         main_stage.setTitle("Курсова робота Гілети Анастасії КН-201");
         main_stage.setScene(main_scene);
@@ -158,8 +158,16 @@ public class MainMenu extends Application {
     @FXML
     private Button cancel_btn;
 
+    // без цього ексепшени про null pointer
     @FXML
     public void initialize() {
+        if (root == null) {
+            addTable();
+        }
+    }
+
+    @FXML
+    public void addTable() {
         ID.setCellValueFactory(new PropertyValueFactory<BaseTariff, Integer>("ID"));
         NAME.setCellValueFactory(new PropertyValueFactory<BaseTariff, String>("name"));
         TYPE.setCellValueFactory(new PropertyValueFactory<BaseTariff, String>("type"));
