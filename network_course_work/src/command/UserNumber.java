@@ -21,11 +21,11 @@ public class UserNumber implements MenuCommand {
         return null;//network.calculateUserNumber();
     }
 
-    public int calculateUserNumber() {
+   /* public int calculateUserNumber() {
         int sumUsers = 0;
         for (BaseTariff tariff: network.getTariffs()) {
             sumUsers += tariff.getUser();
         }
         return sumUsers;
-    }
+    }*/
 }

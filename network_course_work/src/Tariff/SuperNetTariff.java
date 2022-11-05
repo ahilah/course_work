@@ -1,25 +1,25 @@
 package Tariff;
 
 public class SuperNetTariff extends BaseTariff {
-    private final double other;
-    private final double abroad;
-    private final double Internet;
-    public SuperNetTariff(int ID, String name, String type, int user, int SMS, double thisN, int price,
-                          double other, double abroad, double Internet) {
+    private final int other;
+    private final int abroad;
+    private final int Internet;
+    public SuperNetTariff(int ID, String name, String type, int user, int SMS, int thisN, int price,
+                          int other, int abroad, int Internet) {
         super(ID, name,type, user, SMS, thisN, price);
         this.other = other;
         this.abroad = abroad;
         this.Internet = Internet;
     }
-    public double getOther() {
+    public int getOther() {
         return other;
     }
 
-    public double getAbroad() {
+    public int getAbroad() {
         return abroad;
     }
 
-    public double getInternet() {
+    public int getInternet() {
         return Internet;
     }
 

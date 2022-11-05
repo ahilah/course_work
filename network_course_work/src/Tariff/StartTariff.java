@@ -4,7 +4,7 @@ import Tariff.BaseTariff;
 
 public class StartTariff extends BaseTariff {
     public StartTariff(int ID, String name, String type, int user, int SMS,
-                       double thisN, int price) {
+                       int thisN, int price) {
         super(ID, name,type, user, SMS, thisN, price);
     }
     @Override

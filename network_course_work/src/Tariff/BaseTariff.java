@@ -5,10 +5,10 @@ public class BaseTariff {
     private final String name;
     private final String type;
     private final int SMS;
-    private final double thisN;
+    private final int thisN;
     private final int price;
     private int user = 0;
-    BaseTariff(int tariffID, String name, String type, int user, int SMS, double thisN, int price) {
+    BaseTariff(int tariffID, String name, String type, int user, int SMS, int thisN, int price) {
         this.name = name;
         this.type = type;
         this.SMS = SMS;
@@ -29,7 +29,7 @@ public class BaseTariff {
     public int getSMS() {
         return SMS;
     }
-    public double getThisN() {
+    public int getThisN() {
         return thisN;
     }
     public void setUser(int user) {

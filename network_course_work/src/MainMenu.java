@@ -22,14 +22,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
 
+import static command.Delete.ANSI_RESET;
+import static command.Delete.RED_UNDERLINED;
 import static javafx.application.Application.launch;
 
 public class MainMenu extends Application {
     private static Network network;
-
-
     private NewTariff newTariff;
-
 
     private LinkedHashMap<String, MenuCommand> menuItems;
     public MainMenu() throws IOException, SQLException {
@@ -37,6 +36,9 @@ public class MainMenu extends Application {
         network = Network.getNetwork("LvivNet", "+380666990915",
                 "lvivnet@microsoft.com");
         menuItems = new LinkedHashMap<>();
+        fillCommands();
+    }
+    private void fillCommands() {
         menuItems.put(View.NAME, new View(network));
         menuItems.put(Exit.NAME, new Exit(network));
         menuItems.put(UserNumber.NAME, new UserNumber(network));
@@ -56,7 +58,6 @@ public class MainMenu extends Application {
     }
 
     private ObservableList<BaseTariff> tariffData = FXCollections.observableArrayList();
-
     public ObservableList<BaseTariff> getTariffData() {
         return tariffData;
     }
@@ -65,12 +66,19 @@ public class MainMenu extends Application {
     public void handle(ActionEvent actionEvent) {
 
     }
+    @FXML
     static Stage main_stage;
+    @FXML
     static Parent root = null;
+    @FXML
     static Parent adding_sc = null;
+    @FXML
     static Parent price_sc = null;
+    @FXML
     static Scene main_scene;
+    @FXML
     static Scene addition_scene;
+    @FXML
     static Scene price_scene;
 
     @Override
@@ -89,18 +97,18 @@ public class MainMenu extends Application {
     @FXML
     private TableView tableTariffs;
     @FXML
-    private TableColumn<BaseTariff, Double> ABROAD;
+    private TableColumn<BaseTariff, Integer> ABROAD;
     @FXML
     private TableColumn<BaseTariff, Integer> ID;
     @FXML
     private TableColumn <BaseTariff, Integer> users_col;
     //public TableColumn <BaseTariff, Integer>internet_id;
     @FXML
-    private TableColumn<BaseTariff, Double> Internet;
+    private TableColumn<BaseTariff, Integer> Internet;
     @FXML
     private TableColumn<BaseTariff, String> NAME;
     @FXML
-    private TableColumn<BaseTariff, Double> Other_Net;
+    private TableColumn<BaseTariff, Integer> Other_Net;
     @FXML
     private TableColumn<BaseTariff, Integer> PRICE;
     @FXML
@@ -108,7 +116,7 @@ public class MainMenu extends Application {
     @FXML
     private TableColumn<BaseTariff, String> TYPE;
     @FXML
-    private TableColumn<BaseTariff, Double> This_Net;
+    private TableColumn<BaseTariff, Integer> This_Net;
     @FXML
     private ToggleGroup addTariff;
     @FXML
@@ -118,17 +126,17 @@ public class MainMenu extends Application {
     @FXML
     private TextField lower_te;
     @FXML
-    private RadioButton nt_rbt;
+    private RadioButton start_rbt;
+    @FXML
+    private RadioButton super_rbt;
+    @FXML
+    private RadioButton net_rbt;
     @FXML
     private ToggleGroup showGP;
     @FXML
     private Button show_all_btn;
     @FXML
-    private Button show_tariff_btn;
-    @FXML
-    private RadioButton sr_rbt;
-    @FXML
-    private RadioButton strt_rbt;
+    private Button show_between_btn;
     @FXML
     private Text tariff_numb_btn;
     @FXML
@@ -141,6 +149,12 @@ public class MainMenu extends Application {
     private Button delete_btn;
     @FXML
     private TextField tariffID_txt;
+    @FXML
+    private RadioButton minutes_rbt;
+    @FXML
+    private RadioButton sms_rbt;
+    @FXML
+    private RadioButton price_rbt;
 
     @FXML
     public void initialize() {
@@ -149,11 +163,11 @@ public class MainMenu extends Application {
         TYPE.setCellValueFactory(new PropertyValueFactory<BaseTariff, String>("type"));
         users_col.setCellValueFactory(new PropertyValueFactory<BaseTariff, Integer>("user"));
         SMS.setCellValueFactory(new PropertyValueFactory<BaseTariff, String>("SMS"));
-        This_Net.setCellValueFactory(new PropertyValueFactory<BaseTariff, Double>("thisN"));
+        This_Net.setCellValueFactory(new PropertyValueFactory<BaseTariff, Integer>("thisN"));
         PRICE.setCellValueFactory(new PropertyValueFactory<BaseTariff, Integer>("price"));
-        Other_Net.setCellValueFactory(new PropertyValueFactory<BaseTariff, Double>("other"));
-        ABROAD.setCellValueFactory(new PropertyValueFactory<BaseTariff, Double>("abroad"));
-        Internet.setCellValueFactory(new PropertyValueFactory<BaseTariff, Double>("Internet"));
+        Other_Net.setCellValueFactory(new PropertyValueFactory<BaseTariff, Integer>("other"));
+        ABROAD.setCellValueFactory(new PropertyValueFactory<BaseTariff, Integer>("abroad"));
+        Internet.setCellValueFactory(new PropertyValueFactory<BaseTariff, Integer>("Internet"));
         //tableTariffs.setItems(tariffData);
     }
 
@@ -186,28 +200,45 @@ public class MainMenu extends Application {
            rs = cm.execute(Arrays.asList(tariffID_txt.getText()));
            showTariff(rs);
        }
+        /*if (event.getSource() == show_between_btn) {
+            cm = menuItems.get("show");
+            try {
+                double lower = Double.parseDouble(lower_te.getText());
+                double upper = Double.parseDouble(upper_te.getText());
+                if (speed_rbt.isSelected()) {
+                    rs = mc.execute(Arrays.asList("speed", "" + lower, "" + upper));
+                }
+                else if () {
+                    rs = mc.execute(Arrays.asList("price", "" + lower, "" + upper));
+                } else
+                printTV(rs);
+            } catch (InterruptedException | IOException | SQLException e) {
+                e.printStackTrace();
+            }
+        }*/
 
     }
 
-    private void showTariff(ResultSet rs) throws SQLException {
+    private void showTariff(ResultSet rs) throws SQLException, IllegalStateException {
         BaseTariff tariff = null;
         tariffData.clear();
-        while (rs.next())
-        {
-            if (rs.getString("Type").contains("Start")) {
-                tariff = newTariff.newStartTariff(rs);
+        try {
+            while (rs.next()) {
+                if (rs.getString("Type").contains("Start")) {
+                    tariff = newTariff.newStartTariff(rs);
+                } else if (rs.getString("Type").contains("Net")) {
+                    tariff = newTariff.newSuperNetTariff(rs);
+                } else {
+                    tariff = newTariff.newSuperTariff(rs);
+                }
+                tariffData.add(tariff);
             }
-            else if (rs.getString("Type").contains("Net")) {
-                tariff = newTariff.newSuperNetTariff(rs);
-            }
-            else {
-                tariff = newTariff.newSuperTariff(rs);
-            }
-            tariffData.add(tariff);
+            tableTariffs.setItems(tariffData);
+            showInfoNumbers();
         }
-
-        tableTariffs.setItems(tariffData);
-        showInfoNumbers();
+        catch (NullPointerException e) {
+            System.out.println("\n\t" + RED_UNDERLINED + "Null pointer!" + ANSI_RESET);
+        }
     }
     private void showInfoNumbers() throws SQLException {
         tariff_numb_btn.setText("" + network.getNumberTariffs());

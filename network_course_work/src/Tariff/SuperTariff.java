@@ -1,19 +1,19 @@
 package Tariff;
 
 public class SuperTariff extends BaseTariff {
-    private final double other;
-    private final double abroad;
+    private final int other;
+    private final int abroad;
 
-    public SuperTariff(int ID, String name, String type,int user, int SMS, double thisN, int price,
-                       double other, double abroad) {
+    public SuperTariff(int ID, String name, String type,int user, int SMS, int thisN, int price,
+                       int other, int abroad) {
         super(ID, name,type, user, SMS, thisN, price);
         this.other = other;
         this.abroad = abroad;
     }
-    public double getOther() {
+    public int getOther() {
         return other;
     }
-    public double getAbroad() {
+    public int getAbroad() {
         return abroad;
     }
     @Override

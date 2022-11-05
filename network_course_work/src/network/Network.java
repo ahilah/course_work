@@ -6,8 +6,12 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.List;
 
+import static command.Delete.ANSI_RESET;
+import static command.Delete.RED_UNDERLINED;
+
 public class Network {
     private static Network network;
+    public static final String ANSI_GREEN = "\033[0;32m";   // GREEN
     private final String companyName;
     private final String companyNumber;
     private final String companyEmail;
@@ -33,8 +37,17 @@ public class Network {
         this.companyName = companyName;
         this.companyNumber = companyNumber;
         this.companyEmail = companyEmail;
-        con = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-J4UMDEH:1433;databaseName=Network;user=student;password=2022;encrypt=true;trustServerCertificate=true");
-        System.out.println("open");
+        try {
+            con = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-J4UMDEH:1433;" +
+                    "databaseName=Network;user=student;password=2022;" +
+                    "encrypt=true;trustServerCertificate=true");
+            System.out.println("\n\t" + ANSI_GREEN + "Connected to database!" + ANSI_RESET);
+        } catch (SQLException e) {
+            System.out.println("\n\t" + RED_UNDERLINED +  "Not connected to database. Error." + ANSI_RESET);
+            exit();
+            System.exit(1);
+        }
+
     }
 
 
@@ -75,7 +88,6 @@ public class Network {
     public ResultSet removeTariff(int ID) throws SQLException {
         Statement stat = con.createStatement();
         stat.executeUpdate("DELETE FROM Tariff WHERE ID = " + ID);
-        System.out.println("\n\nworks");
         return printAllTariffs();
     }
     public boolean isTariffIDExists(int ID) throws SQLException {

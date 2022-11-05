@@ -41,16 +41,16 @@
       </Text>
       <Pane layoutX="26.0" layoutY="419.0" prefHeight="194.0" prefWidth="246.0" style="-fx-background-color: #ffffff;">
          <children>
-            <RadioButton layoutX="26.0" layoutY="67.0" mnemonicParsing="false" text="Price">
+            <RadioButton fx:id="price_rbt" layoutX="26.0" layoutY="67.0" mnemonicParsing="false" onAction="#click" text="Price">
                <toggleGroup>
                   <ToggleGroup fx:id="showGP" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton layoutX="26.0" layoutY="14.0" mnemonicParsing="false" selected="true" text="SMS number" toggleGroup="$showGP" />
-            <TextField fx:id="lower_te" layoutX="83.0" layoutY="97.0" text="1" />
-            <TextField fx:id="upper_te" layoutX="83.0" layoutY="130.0" text="10" />
-            <RadioButton layoutX="26.0" layoutY="42.0" mnemonicParsing="false" text="Minutes this tariff" toggleGroup="$showGP" />
-            <Button fx:id="show_tariff_btn" layoutX="83.0" layoutY="168.0" mnemonicParsing="false" onAction="#click" prefHeight="17.0" prefWidth="45.0" text="Show" />
+            <RadioButton fx:id="sms_rbt" layoutX="26.0" layoutY="14.0" mnemonicParsing="false" onAction="#click" selected="true" text="SMS number" toggleGroup="$showGP" />
+            <TextField fx:id="lower_te" layoutX="83.0" layoutY="97.0" onAction="#click" text="1" />
+            <TextField fx:id="upper_te" layoutX="83.0" layoutY="130.0" onAction="#click" text="10" />
+            <RadioButton fx:id="minutes_rbt" layoutX="26.0" layoutY="42.0" mnemonicParsing="false" onAction="#click" text="Minutes this tariff" toggleGroup="$showGP" />
+            <Button fx:id="show_between_btn" layoutX="83.0" layoutY="168.0" mnemonicParsing="false" onAction="#click" prefHeight="17.0" prefWidth="45.0" text="Show" />
             <Text layoutX="26.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From" wrappingWidth="35.200000000000045" />
             <Text layoutX="26.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To" />
          </children>
@@ -69,13 +69,13 @@
       <Pane layoutX="309.0" layoutY="419.0" prefHeight="194.0" prefWidth="218.0" style="-fx-background-color: #ffffff;">
          <children>
             <Button fx:id="add_tariff" layoutX="67.0" layoutY="155.0" mnemonicParsing="false" onAction="#click" text="Add tariff" />
-            <RadioButton fx:id="strt_rbt" layoutX="36.0" layoutY="49.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="83.0" selected="true" text="Start tariff">
+            <RadioButton fx:id="start_rbt" layoutX="36.0" layoutY="49.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="83.0" selected="true" text="Start tariff">
                <toggleGroup>
                   <ToggleGroup fx:id="addTariff" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="sr_rbt" layoutX="36.0" layoutY="80.0" mnemonicParsing="false" text="Super Tariff" toggleGroup="$addTariff" />
-            <RadioButton fx:id="nt_rbt" layoutX="36.0" layoutY="117.0" mnemonicParsing="false" text="Super Net Tariff" toggleGroup="$addTariff" />
+            <RadioButton fx:id="super_rbt" layoutX="36.0" layoutY="80.0" mnemonicParsing="false" text="Super Tariff" toggleGroup="$addTariff" />
+            <RadioButton fx:id="net_rbt" layoutX="36.0" layoutY="117.0" mnemonicParsing="false" text="Super Net Tariff" toggleGroup="$addTariff" />
             <Text layoutX="41.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose tariff type" textAlignment="CENTER" wrappingWidth="135.625">
                <font>
                   <Font size="14.0" />
