@@ -18,31 +18,16 @@ public class View implements MenuCommand {
     }
 
     public ResultSet execute(List<String> pr) throws SQLException {
-        if ("all".equals(pr.get(0)))
-        {
+        if ("all".equals(pr.get(0))) {
             return network.printAllTariffs();
+        } else if ("sms".equals(pr.get(0)) && pr.size() == 3) {
+            return network.printTariffsWithSMS(Integer.parseInt(pr.get(1)), Integer.parseInt(pr.get(2)));
+        } else if ("price".equals(pr.get(0)) && pr.size() == 3) {
+            return network.printTariffsWithPrice(Integer.parseInt(pr.get(1)), Integer.parseInt(pr.get(2)));
+        } else {
+            return network.printTariffsWithMinThisNet(Integer.parseInt(pr.get(1)), Integer.parseInt(pr.get(2)));
         }
-        /*else if (pr.size() == 0)
-        {
-            return network.printAvailableCars();
-        }
-        else if ("speed".equals(pr.get(0)) && pr.size() == 3)
-        {
-            return network.printCarsWithSpeed(Double.parseDouble(pr.get(1)), Double.parseDouble(pr.get(2)));
-        }
-        else if ("price".equals(pr.get(0)) && pr.size() == 3)
-        {
-            return network.printCarsWithPrice(Double.parseDouble(pr.get(1)), Double.parseDouble(pr.get(2)));
-        }
-        else if ("consumption".equals(pr.get(0)) && pr.size() == 3)
-        {
-            return network.printCarsWithConsum(Double.parseDouble(pr.get(1)), Double.parseDouble(pr.get(2)));
-        }
-        else
-        {
-            return network.printAvailableCars();
-        }*/
-        return null;
+        // return null;
     }
 
 }

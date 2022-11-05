@@ -43,7 +43,7 @@ public class Network {
                     "encrypt=true;trustServerCertificate=true");
             System.out.println("\n\t" + ANSI_GREEN + "Connected to database!" + ANSI_RESET);
         } catch (SQLException e) {
-            System.out.println("\n\t" + RED_UNDERLINED +  "Not connected to database. Error." + ANSI_RESET);
+            System.out.println("\n\t" + RED_UNDERLINED +  "Not connected to database. Error.\n\n" + ANSI_RESET);
             exit();
             System.exit(1);
         }
@@ -98,6 +98,26 @@ public class Network {
         con.close();
     }
 
+    public ResultSet printTariffsWithSMS(int min, int max) throws SQLException {
+        PreparedStatement stat = con.prepareStatement("SELECT * FROM Tariff WHERE SMS >= ? AND SMS <= ?");
+        stat.setInt(1, min);
+        stat.setInt(2, max);
+        return stat.executeQuery();
+    }
+
+    public ResultSet printTariffsWithPrice(int min, int max) throws SQLException {
+        PreparedStatement stat = con.prepareStatement("SELECT * FROM Tariff WHERE Price >= ? AND Price <= ?");
+        stat.setInt(1, min);
+        stat.setInt(2, max);
+        return stat.executeQuery();
+    }
+
+    public ResultSet printTariffsWithMinThisNet(int min, int max) throws SQLException {
+        PreparedStatement stat = con.prepareStatement("SELECT * FROM Tariff WHERE MinutesThisNet >= ? AND MinutesThisNet <= ?");
+        stat.setInt(1, min);
+        stat.setInt(2, max);
+        return stat.executeQuery();
+    }
 }
 
 

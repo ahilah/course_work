@@ -200,22 +200,23 @@ public class MainMenu extends Application {
            rs = cm.execute(Arrays.asList(tariffID_txt.getText()));
            showTariff(rs);
        }
-        /*if (event.getSource() == show_between_btn) {
-            cm = menuItems.get("show");
+        if (event.getSource() == show_between_btn) {
+            cm = menuItems.get("view");
             try {
-                double lower = Double.parseDouble(lower_te.getText());
-                double upper = Double.parseDouble(upper_te.getText());
-                if (speed_rbt.isSelected()) {
-                    rs = mc.execute(Arrays.asList("speed", "" + lower, "" + upper));
+                int lower = Integer.parseInt(lower_te.getText());
+                int upper = Integer.parseInt(upper_te.getText());
+                if (minutes_rbt.isSelected()) {
+                    rs = cm.execute(Arrays.asList("minutes", "" + lower, "" + upper));
+                } else if (sms_rbt.isSelected()) {
+                    rs = cm.execute(Arrays.asList("sms", "" + lower, "" + upper));
+                } else {
+                    rs = cm.execute(Arrays.asList("price", "" + lower, "" + upper));
                 }
-                else if () {
-                    rs = mc.execute(Arrays.asList("price", "" + lower, "" + upper));
-                } else
-                printTV(rs);
+                showTariff(rs);
             } catch (InterruptedException | IOException | SQLException e) {
                 e.printStackTrace();
             }
-        }*/
+        }
 
     }
 
