@@ -15,8 +15,8 @@
         </Text>
         <Button fx:id="addSuper_btn" layoutX="305.0" layoutY="546.0" mnemonicParsing="false" onAction="#click" prefHeight="34.0" prefWidth="75.0" text="Add" />
         <Button fx:id="cancelSuper_btn" layoutX="491.0" layoutY="546.0" mnemonicParsing="false" onAction="#click" prefHeight="34.0" prefWidth="75.0" text="Cancel" />
-        <TextField fx:id="nameSuper_rbt" layoutX="297.0" layoutY="99.0" onAction="#click" prefHeight="40.0" prefWidth="300.0" />
-        <TextField fx:id="userSuper_rbt" layoutX="297.0" layoutY="162.0" onAction="#click" prefHeight="40.0" prefWidth="300.0" />
+        <TextField fx:id="nameSuper_txt" layoutX="297.0" layoutY="99.0" onAction="#click" prefHeight="40.0" prefWidth="300.0" />
+        <TextField fx:id="userSuper_txt" layoutX="297.0" layoutY="162.0" onAction="#click" prefHeight="40.0" prefWidth="300.0" />
         <Text fill="WHITE" layoutX="145.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tariff name " textAlignment="CENTER">
             <font>
                 <Font size="16.0" />
@@ -27,8 +27,8 @@
                 <Font size="16.0" />
             </font>
         </Text>
-        <TextField fx:id="sms_Super_rbt" layoutX="297.0" layoutY="222.0" onAction="#click" prefHeight="40.0" prefWidth="300.0" />
-        <TextField fx:id="this_Super_rbt" layoutX="297.0" layoutY="283.0" onAction="#click" prefHeight="40.0" prefWidth="300.0" AnchorPane.bottomAnchor="352.0" AnchorPane.leftAnchor="297.0" AnchorPane.rightAnchor="247.0" AnchorPane.topAnchor="283.0" />
+        <TextField fx:id="sms_Super_txt" layoutX="297.0" layoutY="222.0" onAction="#click" prefHeight="40.0" prefWidth="300.0" />
+        <TextField fx:id="this_Super_txt" layoutX="297.0" layoutY="283.0" onAction="#click" prefHeight="40.0" prefWidth="300.0" AnchorPane.bottomAnchor="352.0" AnchorPane.leftAnchor="297.0" AnchorPane.rightAnchor="247.0" AnchorPane.topAnchor="283.0" />
         <Text fill="WHITE" layoutX="162.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SMS" textAlignment="CENTER">
             <font>
                 <Font size="16.0" />
@@ -39,7 +39,7 @@
                 <Font size="16.0" />
             </font>
         </Text>
-        <TextField fx:id="priceSuper_btn" layoutX="297.0" layoutY="339.0" onAction="#click" prefHeight="40.0" prefWidth="300.0" />
+        <TextField fx:id="priceSuper_txt" layoutX="297.0" layoutY="339.0" onAction="#click" prefHeight="40.0" prefWidth="300.0" />
         <Text fill="WHITE" layoutX="160.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price">
             <font>
                 <Font size="16.0" />

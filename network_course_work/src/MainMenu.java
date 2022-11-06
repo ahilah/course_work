@@ -1,6 +1,9 @@
 import Tariff.*;
-import add.NewTariffSQL;
-import command.*;
+import command.Exit;
+import command.Sort;
+import command.View;
+import command.add.Add;
+import command.add.NewTariffSQL;
 import command.commandable.MenuCommand;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -15,7 +18,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import network.Network;
-import command.View;
 
 import java.io.IOException;
 import java.sql.ResultSet;
@@ -24,13 +26,10 @@ import java.util.*;
 
 import static command.Delete.ANSI_RESET;
 import static command.Delete.RED_UNDERLINED;
-import static javafx.application.Application.launch;
 
 public class MainMenu extends Application {
     private static Network network;
-
     private NewTariffSQL newTariffSQL;
-
     private LinkedHashMap<String, MenuCommand> menuItems;
     public MainMenu() throws IOException, SQLException {
         newTariffSQL = new NewTariffSQL();
@@ -44,22 +43,16 @@ public class MainMenu extends Application {
         menuItems.put(Exit.NAME, new Exit(network));
         menuItems.put(Sort.NAME, new Sort(network));
         menuItems.put(command.Delete.NAME, new command.Delete(network));
-        menuItems.put(add.Add.NAME, new add.Add(network));
+        menuItems.put(Add.NAME, new Add(network));
     }
-
     public void execute() throws InterruptedException, IOException, SQLException {
         launch();
     }
-
     private ObservableList<BaseTariff> tariffData = FXCollections.observableArrayList();
     public ObservableList<BaseTariff> getTariffData() {
         return tariffData;
     }
 
-    @FXML
-    public void handle(ActionEvent actionEvent) {
-
-    }
     @FXML
     static Stage main_stage;
     @FXML
@@ -71,7 +64,7 @@ public class MainMenu extends Application {
     @FXML
     static Parent addingSuperNet_sc = null;
     @FXML
-    static Parent price_sc = null;
+    static Parent networkInfo_sc = null;
     @FXML
     static Scene main_scene;
     @FXML
@@ -81,7 +74,7 @@ public class MainMenu extends Application {
     @FXML
     static Scene additionSuperNet_scene;
     @FXML
-    static Scene price_scene;
+    static Scene additionalInfo_scene;
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -90,10 +83,12 @@ public class MainMenu extends Application {
         addingStart_sc = FXMLLoader.load(Objects.requireNonNull(MainMenu.class.getResource("addStartTariff.fxml")));
         addingSuper_sc  = FXMLLoader.load(Objects.requireNonNull(MainMenu.class.getResource("addSuperTariff.fxml")));
         addingSuperNet_sc = FXMLLoader.load(Objects.requireNonNull(MainMenu.class.getResource("addSuperNetTariff.fxml")));
+        networkInfo_sc = FXMLLoader.load(Objects.requireNonNull(MainMenu.class.getResource("networkInfo.fxml")));
         main_scene = new Scene(root);
         additionStart_scene = new Scene(addingStart_sc);
         additionSuper_scene = new Scene(addingSuper_sc);
         additionSuperNet_scene = new Scene(addingSuperNet_sc);
+        additionalInfo_scene = new Scene(networkInfo_sc);
         main_stage.setTitle("Курсова робота Гілети Анастасії КН-201");
         main_stage.setScene(main_scene);
         main_stage.show();
@@ -141,11 +136,11 @@ public class MainMenu extends Application {
     @FXML
     private Button show_between_btn;
     @FXML
-    private Text tariff_numb_btn;
+    private Text tariff_numb_txt;
     @FXML
     private TextField upper_te;
     @FXML
-    private Text user_numb_btn;
+    private Text user_numb_txt;
     @FXML
     private Button sort_btn;
     @FXML
@@ -167,17 +162,17 @@ public class MainMenu extends Application {
     @FXML
     private Button cancelStart_btn;
     @FXML
-    private TextField nameStart_rbt;
+    private TextField nameStart_txt;
     @FXML
-    private TextField sms_Start_rbt;
+    private TextField sms_Start_txt;
     @FXML
-    private TextField this_Start_rbt;
+    private TextField this_Start_txt;
     @FXML
-    private TextField usersStart_rbt;
+    private TextField usersStart_txt;
     @FXML
     private Button addStart_btn;
     @FXML
-    private TextField priceStart_btn;
+    private TextField priceStart_txt;
     @FXML
     private TextField abroadSuper_txt;
     @FXML
@@ -185,17 +180,50 @@ public class MainMenu extends Application {
     @FXML
     private Button cancelSuper_btn;
     @FXML
-    private TextField nameSuper_rbt;
+    private TextField nameSuper_txt;
     @FXML
     private TextField otherSuper_txt;
     @FXML
-    private TextField priceSuper_btn;
+    private TextField priceSuper_txt;
     @FXML
-    private TextField sms_Super_rbt;
+    private TextField sms_Super_txt;
     @FXML
-    private TextField this_Super_rbt;
+    private TextField this_Super_txt;
     @FXML
-    private TextField userSuper_rbt;
+    private TextField userSuper_txt;
+    @FXML
+    private TextField abroadSuperNet_txt;
+    @FXML
+    private Button addSuperNet_btn;
+    @FXML
+    private Button cancelSuperNet_btn;
+    @FXML
+    private TextField internetSuperNet_txt;
+    @FXML
+    private TextField nameSuperNet_txt;
+    @FXML
+    private TextField otherSuperNet_txt;
+    @FXML
+    private TextField priceSuperNet_txt;
+    @FXML
+    private TextField sms_SuperNet_txt;
+    @FXML
+    private TextField this_SuperNet_txt;
+    @FXML
+    private TextField userSuperNet_txt;
+    @FXML
+    private Button networkInfo_btn;
+    @FXML
+    private Button cancelInfo_btn;
+    @FXML
+    private Text companyEmail_txt;
+    @FXML
+    private Text companyName_txt;
+    @FXML
+    private Text companyNumber_txt;
+    @FXML
+    private Button showInfo_btn;
+
 
     // без цього ексепшени про null pointer
     @FXML
@@ -204,7 +232,6 @@ public class MainMenu extends Application {
             addTable();
         }
     }
-
     @FXML
     public void addTable() {
         ID.setCellValueFactory(new PropertyValueFactory<BaseTariff, Integer>("ID"));
@@ -217,34 +244,32 @@ public class MainMenu extends Application {
         Other_Net.setCellValueFactory(new PropertyValueFactory<BaseTariff, Integer>("other"));
         ABROAD.setCellValueFactory(new PropertyValueFactory<BaseTariff, Integer>("abroad"));
         Internet.setCellValueFactory(new PropertyValueFactory<BaseTariff, Integer>("Internet"));
-        //tableTariffs.setItems(tariffData);
     }
 
     @FXML
     void click(ActionEvent event) throws SQLException, IOException, InterruptedException {
-        //network.setLastID();
         tariffData.clear();
         MenuCommand cm;
         ResultSet rs;
-       if (event.getSource() == show_all_btn) {
-           cm = menuItems.get("view");
-           rs = cm.execute(List.of("all"));
-           showTariff(rs);
-       }
-       if (event.getSource() == exit_prg) {
-           cm = menuItems.get("exit");
-           cm.execute(List.of());
-       }
-       if (event.getSource() == sort_btn) {
-           cm = menuItems.get("sort");
-           rs = cm.execute(List.of());
-           showTariff(rs);
-       }
-       if (event.getSource() == delete_btn) {
-           cm = menuItems.get("delete");
-           rs = cm.execute(Arrays.asList(tariffID_txt.getText()));
-           showTariff(rs);
-       }
+        if (event.getSource() == show_all_btn) {
+            cm = menuItems.get("view");
+            rs = cm.execute(List.of("all"));
+            showTariff(rs);
+        }
+        if (event.getSource() == exit_prg) {
+            cm = menuItems.get("exit");
+            cm.execute(List.of());
+        }
+        if (event.getSource() == sort_btn) {
+            cm = menuItems.get("sort");
+            rs = cm.execute(List.of());
+            showTariff(rs);
+        }
+        if (event.getSource() == delete_btn) {
+            cm = menuItems.get("delete");
+            rs = cm.execute(Arrays.asList(tariffID_txt.getText()));
+            showTariff(rs);
+        }
         if (event.getSource() == show_between_btn) {
             cm = menuItems.get("view");
             try {
@@ -282,11 +307,11 @@ public class MainMenu extends Application {
         }
         if (event.getSource() == addStart_btn) {
             cm = menuItems.get("add");
-            cm.execute(Arrays.asList(nameStart_rbt.getText(),
-                    "Start", usersStart_rbt.getText(),
-                    sms_Start_rbt.getText(),
-                    this_Start_rbt.getText(),
-                    priceStart_btn.getText()));
+            cm.execute(Arrays.asList(nameStart_txt.getText(),
+                    "Start", usersStart_txt.getText(),
+                    sms_Start_txt.getText(),
+                    this_Start_txt.getText(),
+                    priceStart_txt.getText()));
 
             main_stage.setScene(main_scene);
             main_stage.show();
@@ -297,11 +322,11 @@ public class MainMenu extends Application {
         }
         if (event.getSource() == addSuper_btn) {
             cm = menuItems.get("add");
-            cm.execute(Arrays.asList(nameSuper_rbt.getText(),
-                    "Super", userSuper_rbt.getText(),
-                    sms_Super_rbt.getText(),
-                    this_Super_rbt.getText(),
-                    priceSuper_btn.getText(),
+            cm.execute(Arrays.asList(nameSuper_txt.getText(),
+                    "Super", userSuper_txt.getText(),
+                    sms_Super_txt.getText(),
+                    this_Super_txt.getText(),
+                    priceSuper_txt.getText(),
                     otherSuper_txt.getText(),
                     abroadSuper_txt.getText()));
 
@@ -312,7 +337,37 @@ public class MainMenu extends Application {
             main_stage.setScene(main_scene);
             main_stage.show();
         }
+        if (event.getSource() == addSuperNet_btn) {
+            cm = menuItems.get("add");
+            cm.execute(Arrays.asList(nameSuperNet_txt.getText(),
+                    "Net", userSuperNet_txt.getText(),
+                    sms_SuperNet_txt.getText(),
+                    this_SuperNet_txt.getText(),
+                    priceSuperNet_txt.getText(),
+                    otherSuperNet_txt.getText(),
+                    abroadSuperNet_txt.getText(),
+                    internetSuperNet_txt.getText()));
 
+            main_stage.setScene(main_scene);
+            main_stage.show();
+        }
+        if (event.getSource() == cancelSuperNet_btn){
+            main_stage.setScene(main_scene);
+            main_stage.show();
+        }
+        if (event.getSource() == networkInfo_btn) {
+            main_stage.setScene(additionalInfo_scene);
+            main_stage.show();
+        }
+        if (event.getSource() == cancelInfo_btn) {
+            main_stage.setScene(main_scene);
+            main_stage.show();
+        }
+        if (event.getSource() == showInfo_btn) {
+            companyName_txt.setText("" + network.getCompanyName());
+            companyEmail_txt.setText("" + network.getCompanyEmail());
+            companyNumber_txt.setText("" + network.getCompanyNumber());
+        }
     }
 
     private void showTariff(ResultSet rs) throws SQLException, IllegalStateException {
@@ -337,9 +392,8 @@ public class MainMenu extends Application {
         }
     }
     private void showInfoNumbers() throws SQLException {
-        tariff_numb_btn.setText("" + network.getNumberTariffs());
-        user_numb_btn.setText("" + network.calculateUserNumber());
+        tariff_numb_txt.setText("" + network.getNumberTariffs());
+        user_numb_txt.setText("" + network.calculateUserNumber());
     }
-
-
 }
+

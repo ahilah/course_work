@@ -1,6 +1,7 @@
 package network;
 
 import Tariff.StartTariff;
+import Tariff.SuperNetTariff;
 import Tariff.SuperTariff;
 
 import java.io.IOException;
@@ -15,18 +16,17 @@ public class Network {
     private final String companyName;
     private final String companyNumber;
     private final String companyEmail;
-    //private List<BaseTariff> tariffs;
-    public static final String DEFAULT_DRIVER_CLASS = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 
+
+    public static final String DEFAULT_DRIVER_CLASS = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
     public static final String DEFAULT_URL = "jdbc:sqlserver://DESKTOP-J4UMDEH:1433;databaseName=Deanery";
     private static final String DEFAULT_USERNAME = "student";
     private static final String DEFAULT_PASSWORD = "2022";
     public static final String FIND_ALL_CUSTOMERS_QUERY = "SELECT Fname, Address FROM Customers ";
     private static final String BY_FIRST_NAME = "WHERE FNAME = ? ";
+
     private static Connection con;
     private int lastID = 8;
-
-
 
     public static Network getNetwork(String companyName, String companyNumber, String companyEmail) throws IOException, SQLException {
         if (network == null) {
@@ -52,6 +52,18 @@ public class Network {
 
     }
 
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public String getCompanyNumber() {
+        return companyNumber;
+    }
+
+    public String getCompanyEmail() {
+        return companyEmail;
+    }
+
     public void addStart(StartTariff tariff) throws SQLException {
         String sql = "INSERT INTO Tariff ([Name], [Type], Users," +
                 " SMS, MinutesThisNet, Price) " +
@@ -68,8 +80,6 @@ public class Network {
         stat.executeUpdate();
         lastID = tariff.getID();
     }
-
-
     public void addSuper(SuperTariff tariff) throws SQLException {
         String sql = "INSERT INTO Tariff ([Name], [Type], Users," +
                 " SMS, MinutesThisNet, Price, MinutesOtherNet, Abroad) " +
@@ -84,10 +94,27 @@ public class Network {
         stat.setInt(6, tariff.getPrice());
         stat.setInt(7, tariff.getOther());
         stat.setInt(8, tariff.getAbroad());
-        /*stat.setInt(9, tariff.getThisN());*/
 
         stat.executeUpdate();
+        lastID = tariff.getID();
+    }
+    public void addSuperNet(SuperNetTariff tariff) throws SQLException {
+        String sql = "INSERT INTO Tariff ([Name], [Type], Users," +
+                " SMS, MinutesThisNet, Price, MinutesOtherNet, Abroad, Internet) " +
+                "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
+        PreparedStatement stat = con.prepareStatement(sql);
+        stat.setString(1, tariff.getName());
+        stat.setString(2, tariff.getType());
+        stat.setInt(3, tariff.getUser());
+        stat.setInt(4, tariff.getSMS());
+        stat.setInt(5, tariff.getThisN());
+        stat.setInt(6, tariff.getPrice());
+        stat.setInt(7, tariff.getOther());
+        stat.setInt(8, tariff.getAbroad());
+        stat.setInt(9, tariff.getInternet());
+
+        stat.executeUpdate();
         lastID = tariff.getID();
     }
 
@@ -111,6 +138,7 @@ public class Network {
             return Integer.parseInt(rs.getString("S"));
         return 0;
     }
+
     public int getNumberTariffsParam(String nameCol) throws SQLException {
         Statement stat = con.createStatement();
         ResultSet rs = stat.executeQuery("SELECT COUNT("+ nameCol + ") AS S FROM Tariff");
@@ -118,9 +146,6 @@ public class Network {
             return Integer.parseInt(rs.getString("S"));
         return 0;
     }
-    /*public List<BaseTariff> getTariffs() {
-        return tariffs;
-    }*/
 
     public int calculateUserNumber() throws SQLException {
         Statement stat = con.createStatement();
@@ -128,12 +153,6 @@ public class Network {
         if (rs.next())
             return Integer.parseInt(rs.getString("S"));
         return 0;
-
-        /*int sumUsers = 0;
-        for (BaseTariff tariff: network.getTariffs()) {
-            sumUsers += tariff.getUser();
-        }
-        return sumUsers;*/
     }
     public ResultSet printAllTariffs() throws SQLException {
         Statement stat = con.createStatement();
@@ -211,14 +230,14 @@ public class Network {
     //CreateList();private void CreateList() throws IOException {
 
         tariffs = new ArrayList<>() {};
-        tariffs.add(new StartTariff(1,"1", "Start",5, 123, 3, 10));
-        tariffs.add( new StartTariff(2,"2", "Start", 9,12, 4, 15));
-        tariffs.add(new SuperTariff(3,"3", "Super", 10,55, 40, 150, 36, 66));
-        tariffs.add(new SuperNetTariff(4,"3", "SuperNet", 20, 55,
+        tariffs.command.add(new StartTariff(1,"1", "Start",5, 123, 3, 10));
+        tariffs.command.add( new StartTariff(2,"2", "Start", 9,12, 4, 15));
+        tariffs.command.add(new SuperTariff(3,"3", "Super", 10,55, 40, 150, 36, 66));
+        tariffs.command.add(new SuperNetTariff(4,"3", "SuperNet", 20, 55,
                 40, 150, 36, 66, 999));
-        /*tariffs.add();
-        tariffs.add();
-        tariffs.add();
+        /*tariffs.command.add();
+        tariffs.command.add();
+        tariffs.command.add();
          // readFile();
 
 

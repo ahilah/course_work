@@ -1,4 +1,4 @@
-package add;
+package command.add;
 
 import Tariff.BaseTariff;
 import Tariff.StartTariff;
@@ -18,14 +18,13 @@ public class Add implements MenuCommand {
     public Add(Network network) {
         this.network = network;
     }
-
     @Override
     public ResultSet execute(List<String> pr) throws InterruptedException, SQLException {
         if (pr.size() < 6) {
             return null;
         }
 
-        BaseTariff tariff = null;
+        BaseTariff tariff;
         switch (pr.get(1).toLowerCase(Locale.ROOT)) {
             case "start" -> {
                 tariff = new StartTariff(network.getLastID() + 1,
@@ -42,11 +41,14 @@ public class Add implements MenuCommand {
                         Integer.parseInt(pr.get(7)) );
                 network.addSuper((SuperTariff) tariff);
             }
-            /*case "superNet" -> {
-                tariff = new SuperNetTariff(pr.get(1),
-                        Double.parseDouble(pr.get(2)), Double.parseDouble(pr.get(3)),
-                        Double.parseDouble(pr.get(4)), TP.getLast_id() + 1, false);
-            }*/
+            case "net" -> {
+                tariff = new SuperNetTariff(network.getLastID() + 1,
+                        pr.get(0), "Super" + pr.get(1), Integer.parseInt(pr.get(2)),
+                        Integer.parseInt(pr.get(3)), Integer.parseInt(pr.get(4)),
+                        Integer.parseInt(pr.get(5)), Integer.parseInt(pr.get(6)),
+                        Integer.parseInt(pr.get(7)), Integer.parseInt(pr.get(8)));
+                network.addSuperNet((SuperNetTariff) tariff);
+            }
             default -> {
                 return null;
             }

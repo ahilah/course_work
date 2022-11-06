@@ -1,4 +1,4 @@
-package add;
+package command.add;
 
 import Tariff.StartTariff;
 import Tariff.SuperNetTariff;
