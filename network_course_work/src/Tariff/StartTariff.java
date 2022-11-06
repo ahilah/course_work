@@ -7,6 +7,7 @@ public class StartTariff extends BaseTariff {
                        int thisN, int price) {
         super(ID, name,type, user, SMS, thisN, price);
     }
+
     @Override
     public String toString() {
         return "Start Tariff " + super.toString() + ")";

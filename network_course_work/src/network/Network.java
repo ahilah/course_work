@@ -1,5 +1,7 @@
 package network;
 
+import Tariff.StartTariff;
+
 import java.io.IOException;
 import java.sql.*;
 
@@ -21,6 +23,7 @@ public class Network {
     public static final String FIND_ALL_CUSTOMERS_QUERY = "SELECT Fname, Address FROM Customers ";
     private static final String BY_FIRST_NAME = "WHERE FNAME = ? ";
     private static Connection con;
+    private int lastID = 8;
 
 
 
@@ -47,7 +50,39 @@ public class Network {
 
     }
 
+    public void addStart(StartTariff tariff) throws SQLException {
+        String sql = "INSERT INTO Tariff ([Name], [Type], Users," +
+                " SMS, MinutesThisNet, Price) " +
+                "VALUES(?, ?, ?, ?, ?, ?)";
 
+        PreparedStatement stat = con.prepareStatement(sql);
+        stat.setString(1, tariff.getName());
+        stat.setString(2, tariff.getType());
+        stat.setInt(3, tariff.getUser());
+        stat.setInt(4, tariff.getSMS());
+        stat.setInt(5, tariff.getThisN());
+        stat.setInt(6, tariff.getPrice());
+        /*stat.setInt(7, null);
+        stat.setInt(8, tariff.getThisN());
+        stat.setInt(9, tariff.getThisN());*/
+
+        stat.executeUpdate();
+
+        lastID = tariff.getID();
+    }
+
+    public int getLastID() {
+        return lastID;
+    }
+
+    public void setLastID() throws SQLException {
+        Statement stat = con.createStatement();
+        ResultSet rs = stat.executeQuery("SELECT TOP (1) ID AS L FROM Tariff ORDER BY ID DESC");
+        if (rs.next()) {
+            lastID = Integer.parseInt(rs.getString("S"));
+        }
+        lastID = 0;
+    }
 
     public int getNumberTariffs() throws SQLException {
         Statement stat = con.createStatement();

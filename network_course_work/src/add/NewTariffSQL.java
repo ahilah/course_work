@@ -7,7 +7,7 @@ import Tariff.SuperTariff;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class NewTariff {
+public class NewTariffSQL {
     public StartTariff newStartTariff(ResultSet rs) throws SQLException {
         return new StartTariff(rs.getInt("ID"),
                 rs.getString("Name"),

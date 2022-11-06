@@ -1,5 +1,5 @@
 import Tariff.*;
-import add.NewTariff;
+import add.NewTariffSQL;
 import command.*;
 import command.commandable.MenuCommand;
 import javafx.application.Application;
@@ -28,11 +28,12 @@ import static javafx.application.Application.launch;
 
 public class MainMenu extends Application {
     private static Network network;
-    private NewTariff newTariff;
+
+    private NewTariffSQL newTariffSQL;
 
     private LinkedHashMap<String, MenuCommand> menuItems;
     public MainMenu() throws IOException, SQLException {
-        newTariff = new NewTariff();
+        newTariffSQL = new NewTariffSQL();
         network = Network.getNetwork("LvivNet", "+380666990915",
                 "lvivnet@microsoft.com");
         menuItems = new LinkedHashMap<>();
@@ -43,9 +44,7 @@ public class MainMenu extends Application {
         menuItems.put(Exit.NAME, new Exit(network));
         menuItems.put(Sort.NAME, new Sort(network));
         menuItems.put(command.Delete.NAME, new command.Delete(network));
-
-
-        /*menuItems.put(add.Add.NAME, new add.Add(TP));*/
+        menuItems.put(add.Add.NAME, new add.Add(network));
     }
 
     public void execute() throws InterruptedException, IOException, SQLException {
@@ -66,13 +65,21 @@ public class MainMenu extends Application {
     @FXML
     static Parent root = null;
     @FXML
-    static Parent adding_sc = null;
+    static Parent addingStart_sc = null;
+    @FXML
+    static Parent addingSuper_sc = null;
+    @FXML
+    static Parent addingSuperNet_sc = null;
     @FXML
     static Parent price_sc = null;
     @FXML
     static Scene main_scene;
     @FXML
-    static Scene addition_scene;
+    static Scene additionStart_scene;
+    @FXML
+    static Scene additionSuper_scene;
+    @FXML
+    static Scene additionSuperNet_scene;
     @FXML
     static Scene price_scene;
 
@@ -80,11 +87,13 @@ public class MainMenu extends Application {
     public void start(Stage stage) throws Exception {
         main_stage = stage;
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("mainStage.fxml")));
-        adding_sc = FXMLLoader.load(Objects.requireNonNull(MainMenu.class.getResource("addStartTariff.fxml")));
-        /*price_sc = FXMLLoader.load(MainMenu.class.getResource("price.fxml"));*/
+        addingStart_sc = FXMLLoader.load(Objects.requireNonNull(MainMenu.class.getResource("addStartTariff.fxml")));
+        addingSuper_sc  = FXMLLoader.load(Objects.requireNonNull(MainMenu.class.getResource("addSuperTariff.fxml")));
+        addingSuperNet_sc = FXMLLoader.load(Objects.requireNonNull(MainMenu.class.getResource("addSuperNetTariff.fxml")));
         main_scene = new Scene(root);
-        addition_scene = new Scene(adding_sc);
-        /*price_scene = new Scene(price_sc, 1000, 800);*/
+        additionStart_scene = new Scene(addingStart_sc);
+        additionSuper_scene = new Scene(addingSuper_sc);
+        additionSuperNet_scene = new Scene(addingSuperNet_sc);
         main_stage.setTitle("Курсова робота Гілети Анастасії КН-201");
         main_stage.setScene(main_scene);
         main_stage.show();
@@ -156,7 +165,19 @@ public class MainMenu extends Application {
     @FXML
     private RadioButton otherNet_rbt;
     @FXML
-    private Button cancel_btn;
+    private Button cancelStart_btn;
+    @FXML
+    private TextField nameStart_rbt;
+    @FXML
+    private TextField sms_Start_rbt;
+    @FXML
+    private TextField this_Start_rbt;
+    @FXML
+    private TextField usersStart_rbt;
+    @FXML
+    private Button addStart_btn;
+    @FXML
+    private TextField priceStart_btn;
 
     // без цього ексепшени про null pointer
     @FXML
@@ -183,13 +204,9 @@ public class MainMenu extends Application {
 
     @FXML
     void click(ActionEvent event) throws SQLException, IOException, InterruptedException {
-        //BaseTariff tariff = null;
         tariffData.clear();
         MenuCommand cm;
         ResultSet rs;
-        /*tariffData.addAll(network.getTariffs());
-        System.out.println("tariffs are added");*/
-
        if (event.getSource() == show_all_btn) {
            cm = menuItems.get("view");
            rs = cm.execute(List.of("all"));
@@ -234,11 +251,28 @@ public class MainMenu extends Application {
         }
         if (event.getSource() == add_tariff) {
             if (start_rbt.isSelected()) {
-                main_stage.setScene(addition_scene);
+                main_stage.setScene(additionStart_scene);
+                main_stage.show();
+            } else if (super_rbt.isSelected()) {
+                main_stage.setScene(additionSuper_scene);
+                main_stage.show();
+            } else {
+                main_stage.setScene(additionSuperNet_scene);
                 main_stage.show();
             }
         }
-        if (event.getSource() == cancel_btn) {
+        if (event.getSource() == addStart_btn) {
+            cm = menuItems.get("add");
+            cm.execute(Arrays.asList(nameStart_rbt.getText(),
+                    "Start", usersStart_rbt.getText(),
+                    sms_Start_rbt.getText(),
+                    this_Start_rbt.getText(),
+                    priceStart_btn.getText()));
+
+            main_stage.setScene(main_scene);
+            main_stage.show();
+        }
+        if (event.getSource() == cancelStart_btn) {
             main_stage.setScene(main_scene);
             main_stage.show();
         }
@@ -251,11 +285,11 @@ public class MainMenu extends Application {
         try {
             while (rs.next()) {
                 if (rs.getString("Type").contains("Start")) {
-                    tariff = newTariff.newStartTariff(rs);
+                    tariff = newTariffSQL.newStartTariff(rs);
                 } else if (rs.getString("Type").contains("Net")) {
-                    tariff = newTariff.newSuperNetTariff(rs);
+                    tariff = newTariffSQL.newSuperNetTariff(rs);
                 } else {
-                    tariff = newTariff.newSuperTariff(rs);
+                    tariff = newTariffSQL.newSuperTariff(rs);
                 }
                 tariffData.add(tariff);
             }
