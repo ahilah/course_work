@@ -4,7 +4,7 @@ public class SuperTariff extends BaseTariff {
     private final int other;
     private final int abroad;
 
-    public SuperTariff(int ID, String name, String type,int user, int SMS, int thisN, int price,
+    public SuperTariff(int ID, String name, String type, int user, int SMS, int thisN, int price,
                        int other, int abroad) {
         super(ID, name,type, user, SMS, thisN, price);
         this.other = other;

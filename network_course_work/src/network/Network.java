@@ -1,6 +1,7 @@
 package network;
 
 import Tariff.StartTariff;
+import Tariff.SuperTariff;
 
 import java.io.IOException;
 import java.sql.*;
@@ -42,6 +43,7 @@ public class Network {
                     "databaseName=Network;user=student;password=2022;" +
                     "encrypt=true;trustServerCertificate=true");
             System.out.println("\n\t" + ANSI_GREEN + "Connected to database!" + ANSI_RESET);
+
         } catch (SQLException e) {
             System.out.println("\n\t" + RED_UNDERLINED +  "Not connected to database. Error.\n\n" + ANSI_RESET);
             exit();
@@ -62,9 +64,27 @@ public class Network {
         stat.setInt(4, tariff.getSMS());
         stat.setInt(5, tariff.getThisN());
         stat.setInt(6, tariff.getPrice());
-        /*stat.setInt(7, null);
-        stat.setInt(8, tariff.getThisN());
-        stat.setInt(9, tariff.getThisN());*/
+
+        stat.executeUpdate();
+        lastID = tariff.getID();
+    }
+
+
+    public void addSuper(SuperTariff tariff) throws SQLException {
+        String sql = "INSERT INTO Tariff ([Name], [Type], Users," +
+                " SMS, MinutesThisNet, Price, MinutesOtherNet, Abroad) " +
+                "VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+
+        PreparedStatement stat = con.prepareStatement(sql);
+        stat.setString(1, tariff.getName());
+        stat.setString(2, tariff.getType());
+        stat.setInt(3, tariff.getUser());
+        stat.setInt(4, tariff.getSMS());
+        stat.setInt(5, tariff.getThisN());
+        stat.setInt(6, tariff.getPrice());
+        stat.setInt(7, tariff.getOther());
+        stat.setInt(8, tariff.getAbroad());
+        /*stat.setInt(9, tariff.getThisN());*/
 
         stat.executeUpdate();
 

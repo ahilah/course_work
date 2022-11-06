@@ -34,12 +34,15 @@ public class Add implements MenuCommand {
                         Integer.parseInt(pr.get(5)));
                 network.addStart((StartTariff) tariff);
             }
-            /*case "super" -> {
-                tariff = new SuperTariff(pr.get(1),
-                        Double.parseDouble(pr.get(2)), Double.parseDouble(pr.get(3)),
-                        Double.parseDouble(pr.get(4)), TP.getLast_id() + 1, false);
+            case "super" -> {
+                tariff = new SuperTariff(network.getLastID() + 1,
+                        pr.get(0), pr.get(1), Integer.parseInt(pr.get(2)),
+                        Integer.parseInt(pr.get(3)), Integer.parseInt(pr.get(4)),
+                        Integer.parseInt(pr.get(5)), Integer.parseInt(pr.get(6)),
+                        Integer.parseInt(pr.get(7)) );
+                network.addSuper((SuperTariff) tariff);
             }
-            case "superNet" -> {
+            /*case "superNet" -> {
                 tariff = new SuperNetTariff(pr.get(1),
                         Double.parseDouble(pr.get(2)), Double.parseDouble(pr.get(3)),
                         Double.parseDouble(pr.get(4)), TP.getLast_id() + 1, false);

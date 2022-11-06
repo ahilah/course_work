@@ -178,6 +178,24 @@ public class MainMenu extends Application {
     private Button addStart_btn;
     @FXML
     private TextField priceStart_btn;
+    @FXML
+    private TextField abroadSuper_txt;
+    @FXML
+    private Button addSuper_btn;
+    @FXML
+    private Button cancelSuper_btn;
+    @FXML
+    private TextField nameSuper_rbt;
+    @FXML
+    private TextField otherSuper_txt;
+    @FXML
+    private TextField priceSuper_btn;
+    @FXML
+    private TextField sms_Super_rbt;
+    @FXML
+    private TextField this_Super_rbt;
+    @FXML
+    private TextField userSuper_rbt;
 
     // без цього ексепшени про null pointer
     @FXML
@@ -204,6 +222,7 @@ public class MainMenu extends Application {
 
     @FXML
     void click(ActionEvent event) throws SQLException, IOException, InterruptedException {
+        //network.setLastID();
         tariffData.clear();
         MenuCommand cm;
         ResultSet rs;
@@ -273,6 +292,23 @@ public class MainMenu extends Application {
             main_stage.show();
         }
         if (event.getSource() == cancelStart_btn) {
+            main_stage.setScene(main_scene);
+            main_stage.show();
+        }
+        if (event.getSource() == addSuper_btn) {
+            cm = menuItems.get("add");
+            cm.execute(Arrays.asList(nameSuper_rbt.getText(),
+                    "Super", userSuper_rbt.getText(),
+                    sms_Super_rbt.getText(),
+                    this_Super_rbt.getText(),
+                    priceSuper_btn.getText(),
+                    otherSuper_txt.getText(),
+                    abroadSuper_txt.getText()));
+
+            main_stage.setScene(main_scene);
+            main_stage.show();
+        }
+        if (event.getSource() == cancelSuper_btn){
             main_stage.setScene(main_scene);
             main_stage.show();
         }
