@@ -34,6 +34,7 @@ public class Network {
         }
         return network;
     }
+
     private Network(String companyName, String companyNumber, String companyEmail) throws IOException, SQLException {
         this.companyName = companyName;
         this.companyNumber = companyNumber;
@@ -45,7 +46,7 @@ public class Network {
             //System.out.println("\n\t" + ANSI_GREEN + "Connected to database!" + ANSI_RESET);
 
         } catch (SQLException e) {
-            System.out.println("\n\t" + RED_UNDERLINED +  "Not connected to database. Error.\n\n" + ANSI_RESET);
+            System.out.println("\n\t" + RED_UNDERLINED + "Not connected to database. Error.\n\n" + ANSI_RESET);
             exit();
             System.exit(1);
         }
@@ -84,6 +85,7 @@ public class Network {
         stat.executeUpdate();
         lastID = tariff.getID();
     }
+
     public void addSuper(SuperTariff tariff) throws SQLException {
         String sql = "INSERT INTO Tariff ([Name], [Type], Users," +
                 " SMS, MinutesThisNet, Price, MinutesOtherNet, Abroad) " +
@@ -102,6 +104,7 @@ public class Network {
         stat.executeUpdate();
         lastID = tariff.getID();
     }
+
     public void addSuperNet(SuperNetTariff tariff) throws SQLException {
         String sql = "INSERT INTO Tariff ([Name], [Type], Users," +
                 " SMS, MinutesThisNet, Price, MinutesOtherNet, Abroad, Internet) " +
@@ -145,7 +148,7 @@ public class Network {
 
     public int getNumberTariffsParam(String nameCol) throws SQLException {
         Statement stat = con.createStatement();
-        ResultSet rs = stat.executeQuery("SELECT COUNT("+ nameCol + ") AS S FROM Tariff");
+        ResultSet rs = stat.executeQuery("SELECT COUNT(" + nameCol + ") AS S FROM Tariff");
         if (rs.next())
             return Integer.parseInt(rs.getString("S"));
         return 0;
@@ -158,24 +161,29 @@ public class Network {
             return Integer.parseInt(rs.getString("S"));
         return 0;
     }
+
     public ResultSet printAllTariffs() throws SQLException {
         Statement stat = con.createStatement();
         return stat.executeQuery("SELECT * \n" +
                 "  FROM [Network].[dbo].[Tariff]");
     }
+
     public ResultSet sortTariffs() throws SQLException {
         Statement stat = con.createStatement();
         return stat.executeQuery("SELECT * FROM Tariff ORDER BY Price ASC");
     }
+
     public ResultSet removeTariff(int ID) throws SQLException {
         Statement stat = con.createStatement();
         stat.executeUpdate("DELETE FROM Tariff WHERE ID = " + ID);
         return printAllTariffs();
     }
+
     public boolean isTariffIDExists(int ID) throws SQLException {
         Statement stat = con.createStatement();
         return stat.executeQuery("SELECT * FROM Tariff WHERE ID = " + ID) != null;
     }
+
     public void exit() throws SQLException {
         con.close();
     }
