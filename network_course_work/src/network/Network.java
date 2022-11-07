@@ -16,17 +16,15 @@ public class Network {
     private final String companyName;
     private final String companyNumber;
     private final String companyEmail;
+    private static Connection con;
+    private int lastID = 17;
 
-
-    public static final String DEFAULT_DRIVER_CLASS = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+    /*public static final String DEFAULT_DRIVER_CLASS = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
     public static final String DEFAULT_URL = "jdbc:sqlserver://DESKTOP-J4UMDEH:1433;databaseName=Deanery";
     private static final String DEFAULT_USERNAME = "student";
     private static final String DEFAULT_PASSWORD = "2022";
     public static final String FIND_ALL_CUSTOMERS_QUERY = "SELECT Fname, Address FROM Customers ";
-    private static final String BY_FIRST_NAME = "WHERE FNAME = ? ";
-
-    private static Connection con;
-    private int lastID = 17;
+    private static final String BY_FIRST_NAME = "WHERE FNAME = ? ";*/
 
     public static Network getNetwork(String companyName, String companyNumber, String companyEmail) throws IOException, SQLException {
         if (network == null) {
@@ -43,7 +41,7 @@ public class Network {
             con = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-J4UMDEH:1433;" +
                     "databaseName=Network;user=student;password=2022;" +
                     "encrypt=true;trustServerCertificate=true");
-            //System.out.println("\n\t" + ANSI_GREEN + "Connected to database!" + ANSI_RESET);
+            System.out.println("\n\t" + ANSI_GREEN + "Connected to database!" + ANSI_RESET);
 
         } catch (SQLException e) {
             System.out.println("\n\t" + RED_UNDERLINED + "Not connected to database. Error.\n\n" + ANSI_RESET);
@@ -129,14 +127,14 @@ public class Network {
         return lastID;
     }
 
-    public void setLastID() throws SQLException {
+    /*public void setLastID() throws SQLException {
         Statement stat = con.createStatement();
         ResultSet rs = stat.executeQuery("SELECT TOP (1) ID AS L FROM Tariff ORDER BY ID DESC");
         if (rs.next()) {
             lastID = Integer.parseInt(rs.getString("S"));
         }
         lastID = 0;
-    }
+    }*/
 
     public int getNumberTariffs() throws SQLException {
         Statement stat = con.createStatement();
@@ -146,13 +144,13 @@ public class Network {
         return 0;
     }
 
-    public int getNumberTariffsParam(String nameCol) throws SQLException {
+    /*public int getNumberTariffsParam(String nameCol) throws SQLException {
         Statement stat = con.createStatement();
         ResultSet rs = stat.executeQuery("SELECT COUNT(" + nameCol + ") AS S FROM Tariff");
         if (rs.next())
             return Integer.parseInt(rs.getString("S"));
         return 0;
-    }
+    }*/
 
     public int calculateUserNumber() throws SQLException {
         Statement stat = con.createStatement();
@@ -236,13 +234,13 @@ public class Network {
         return stat.executeQuery();
     }
 
-    public ResultSet one() throws SQLException {
+    /*public ResultSet one() throws SQLException {
         PreparedStatement stat = con.prepareStatement("SELECT * FROM Tariff " +
                 "WHERE ID = ? OR ID = ?");
         stat.setInt(1, 1);
         stat.setInt(2, 6);
         return stat.executeQuery();
-    }
+    }*/
 }
 
 

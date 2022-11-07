@@ -31,6 +31,8 @@ public class MainMenu extends Application {
     private static Network network;
     private NewTariffSQL newTariffSQL;
     private LinkedHashMap<String, MenuCommand> menuItems;
+    private ObservableList<BaseTariff> tariffData = FXCollections.observableArrayList();
+
     public MainMenu() throws IOException, SQLException {
         newTariffSQL = new NewTariffSQL();
         network = Network.getNetwork("LvivNet", "+380666990915",
@@ -38,6 +40,7 @@ public class MainMenu extends Application {
         menuItems = new LinkedHashMap<>();
         fillCommands();
     }
+
     private void fillCommands() {
         menuItems.put(View.NAME, new View(network));
         menuItems.put(Exit.NAME, new Exit(network));
@@ -50,16 +53,13 @@ public class MainMenu extends Application {
         return network;
     }
 
-
-
-    public void execute() throws InterruptedException, IOException, SQLException {
-        launch();
-    }
-    private ObservableList<BaseTariff> tariffData = FXCollections.observableArrayList();
     public ObservableList<BaseTariff> getTariffData() {
         return tariffData;
     }
 
+    public void execute() throws InterruptedException, IOException, SQLException {
+        launch();
+    }
     @FXML
     static Stage main_stage;
     @FXML
@@ -82,24 +82,6 @@ public class MainMenu extends Application {
     static Scene additionSuperNet_scene;
     @FXML
     static Scene additionalInfo_scene;
-
-    @Override
-    public void start(Stage stage) throws Exception {
-        main_stage = stage;
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("mainStage.fxml")));
-        addingStart_sc = FXMLLoader.load(Objects.requireNonNull(MainMenu.class.getResource("addStartTariff.fxml")));
-        addingSuper_sc  = FXMLLoader.load(Objects.requireNonNull(MainMenu.class.getResource("addSuperTariff.fxml")));
-        addingSuperNet_sc = FXMLLoader.load(Objects.requireNonNull(MainMenu.class.getResource("addSuperNetTariff.fxml")));
-        networkInfo_sc = FXMLLoader.load(Objects.requireNonNull(MainMenu.class.getResource("networkInfo.fxml")));
-        main_scene = new Scene(root);
-        additionStart_scene = new Scene(addingStart_sc);
-        additionSuper_scene = new Scene(addingSuper_sc);
-        additionSuperNet_scene = new Scene(addingSuperNet_sc);
-        additionalInfo_scene = new Scene(networkInfo_sc);
-        main_stage.setTitle("Курсова робота Гілети Анастасії КН-201");
-        main_stage.setScene(main_scene);
-        main_stage.show();
-    }
     @FXML
     private TableView tableTariffs;
     @FXML
@@ -231,6 +213,23 @@ public class MainMenu extends Application {
     @FXML
     private Button showInfo_btn;
 
+    @Override
+    public void start(Stage stage) throws Exception {
+        main_stage = stage;
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("mainStage.fxml")));
+        addingStart_sc = FXMLLoader.load(Objects.requireNonNull(MainMenu.class.getResource("addStartTariff.fxml")));
+        addingSuper_sc  = FXMLLoader.load(Objects.requireNonNull(MainMenu.class.getResource("addSuperTariff.fxml")));
+        addingSuperNet_sc = FXMLLoader.load(Objects.requireNonNull(MainMenu.class.getResource("addSuperNetTariff.fxml")));
+        networkInfo_sc = FXMLLoader.load(Objects.requireNonNull(MainMenu.class.getResource("networkInfo.fxml")));
+        main_scene = new Scene(root);
+        additionStart_scene = new Scene(addingStart_sc);
+        additionSuper_scene = new Scene(addingSuper_sc);
+        additionSuperNet_scene = new Scene(addingSuperNet_sc);
+        additionalInfo_scene = new Scene(networkInfo_sc);
+        main_stage.setTitle("Курсова робота Гілети Анастасії КН-201");
+        main_stage.setScene(main_scene);
+        main_stage.show();
+    }
 
     // без цього ексепшени про null pointer
     @FXML
@@ -252,7 +251,6 @@ public class MainMenu extends Application {
         ABROAD.setCellValueFactory(new PropertyValueFactory<BaseTariff, Integer>("abroad"));
         Internet.setCellValueFactory(new PropertyValueFactory<BaseTariff, Integer>("Internet"));
     }
-
     @FXML
     void click(ActionEvent event) throws SQLException, IOException, InterruptedException {
         tariffData.clear();
@@ -376,7 +374,6 @@ public class MainMenu extends Application {
             companyNumber_txt.setText("" + network.getCompanyNumber());
         }
     }
-
     private void showTariff(ResultSet rs) throws SQLException, IllegalStateException {
         BaseTariff tariff = null;
         tariffData.clear();
@@ -403,4 +400,3 @@ public class MainMenu extends Application {
         user_numb_txt.setText("" + network.calculateUserNumber());
     }
 }
-
