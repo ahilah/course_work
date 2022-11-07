@@ -23,12 +23,12 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="companyName_txt" layoutX="195.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" textAlignment="CENTER" wrappingWidth="270.93675231933594">
+      <Text fx:id="companyName_txt" layoutX="195.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" wrappingWidth="270.93675231933594">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="companyEmail_txt" layoutX="195.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" textAlignment="CENTER" wrappingWidth="270.93675231933594">
+      <Text fx:id="companyEmail_txt" layoutX="195.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" wrappingWidth="270.93675231933594">
          <font>
             <Font size="14.0" />
          </font>
@@ -38,7 +38,7 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="companyNumber_txt" layoutX="195.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" textAlignment="CENTER" wrappingWidth="270.93675231933594">
+      <Text fx:id="companyNumber_txt" layoutX="195.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" wrappingWidth="270.93675231933594">
          <font>
             <Font size="14.0" />
          </font>

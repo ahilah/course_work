@@ -26,7 +26,7 @@ public class Network {
     private static final String BY_FIRST_NAME = "WHERE FNAME = ? ";
 
     private static Connection con;
-    private int lastID = 8;
+    private int lastID = 17;
 
     public static Network getNetwork(String companyName, String companyNumber, String companyEmail) throws IOException, SQLException {
         if (network == null) {
@@ -42,7 +42,7 @@ public class Network {
             con = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-J4UMDEH:1433;" +
                     "databaseName=Network;user=student;password=2022;" +
                     "encrypt=true;trustServerCertificate=true");
-            System.out.println("\n\t" + ANSI_GREEN + "Connected to database!" + ANSI_RESET);
+            //System.out.println("\n\t" + ANSI_GREEN + "Connected to database!" + ANSI_RESET);
 
         } catch (SQLException e) {
             System.out.println("\n\t" + RED_UNDERLINED +  "Not connected to database. Error.\n\n" + ANSI_RESET);
@@ -50,6 +50,10 @@ public class Network {
             System.exit(1);
         }
 
+    }
+
+    public static Connection getCon() {
+        return con;
     }
 
     public String getCompanyName() {
@@ -221,6 +225,14 @@ public class Network {
                 "WHERE Internet >= ? AND Internet <= ?");
         stat.setInt(1, min);
         stat.setInt(2, max);
+        return stat.executeQuery();
+    }
+
+    public ResultSet one() throws SQLException {
+        PreparedStatement stat = con.prepareStatement("SELECT * FROM Tariff " +
+                "WHERE ID = ? OR ID = ?");
+        stat.setInt(1, 1);
+        stat.setInt(2, 6);
         return stat.executeQuery();
     }
 }

@@ -45,6 +45,13 @@ public class MainMenu extends Application {
         menuItems.put(command.Delete.NAME, new command.Delete(network));
         menuItems.put(Add.NAME, new Add(network));
     }
+
+    public static Network getNetwork() {
+        return network;
+    }
+
+
+
     public void execute() throws InterruptedException, IOException, SQLException {
         launch();
     }

@@ -13,6 +13,7 @@
         <option value="Interface" />
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -30,11 +31,17 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Downloaded.Files.Path.Enabled": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/programming/idkwt/PP_course_work-main",
-    "project.structure.last.edited": "Modules",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "last_opened_file_path": "D:/programming/appliedProgramming/course_work/network_course_work",
+    "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.lookFeel"
@@ -52,8 +59,17 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\programming\appliedProgramming\course_work\network_course_work\driver" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="network" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.MainMenu">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="18" />
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -63,31 +79,76 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainMenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="18" />
-      <option name="MAIN_CLASS_NAME" value="MainMenu" />
+    <configuration name="NetworkTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="network_course_work" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;D:\downloads\javaFX\javafx-sdk-19\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="NetworkTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SQLMethods" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="SQLMethods" />
+    <configuration name="NetworkTest.calculateUserNumber" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="network_course_work" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="NetworkTest" />
+      <option name="METHOD_NAME" value="calculateUserNumber" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NetworkTest.getCon" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="network_course_work" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="NetworkTest" />
+      <option name="METHOD_NAME" value="getCon" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NetworkTest.getNetwork" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="network_course_work" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value=".*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="NetworkTest" />
+      <option name="METHOD_NAME" value="getNetwork" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NetworkTest.sortTariffs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="network_course_work" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="NetworkTest" />
+      <option name="METHOD_NAME" value="sortTariffs" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="Application.SQLMethods" />
-      <item itemvalue="Application.MainMenu" />
+      <item itemvalue="JUnit.NetworkTest" />
+      <item itemvalue="JUnit.NetworkTest.calculateUserNumber" />
+      <item itemvalue="JUnit.NetworkTest.getCon" />
+      <item itemvalue="JUnit.NetworkTest.getNetwork" />
+      <item itemvalue="JUnit.NetworkTest.sortTariffs" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MainMenu" />
-        <item itemvalue="Application.SQLMethods" />
+        <item itemvalue="JUnit.NetworkTest" />
+        <item itemvalue="JUnit.NetworkTest.sortTariffs" />
+        <item itemvalue="JUnit.NetworkTest.calculateUserNumber" />
+        <item itemvalue="JUnit.NetworkTest.getCon" />
+        <item itemvalue="JUnit.NetworkTest.getNetwork" />
       </list>
     </recent_temporary>
   </component>
