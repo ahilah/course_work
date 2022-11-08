@@ -27,6 +27,9 @@ import java.util.*;
 import static command.Delete.ANSI_RESET;
 import static command.Delete.RED_UNDERLINED;
 
+//--module-path "D:\downloads\javaFX\javafx-sdk-19\lib" --command.add-modules javafx.controls,javafx.fxml
+// D:\test1.txt tariffs
+
 public class MainMenu extends Application {
     private static Network network;
     private NewTariffSQL newTariffSQL;
