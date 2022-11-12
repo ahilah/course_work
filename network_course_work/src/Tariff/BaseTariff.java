@@ -32,9 +32,6 @@ public class BaseTariff {
     public int getThisN() {
         return thisN;
     }
-    public void setUser(int user) {
-        this.user = user;
-    }
     public int getID() {
         return ID;
     }

@@ -18,6 +18,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import network.Network;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.sql.ResultSet;
@@ -31,6 +33,7 @@ import static command.Delete.RED_UNDERLINED;
 // D:\test1.txt tariffs
 
 public class MainMenu extends Application {
+    private static Logger log = Logger.getLogger(MainMenu.class.getName());
     private static Network network;
     private NewTariffSQL newTariffSQL;
     private LinkedHashMap<String, MenuCommand> menuItems;
@@ -45,6 +48,7 @@ public class MainMenu extends Application {
     }
 
     private void fillCommands() {
+        log.info("Fill main menu commands");
         menuItems.put(View.NAME, new View(network));
         menuItems.put(Exit.NAME, new Exit(network));
         menuItems.put(Sort.NAME, new Sort(network));
@@ -61,6 +65,7 @@ public class MainMenu extends Application {
     }
 
     public void execute() throws InterruptedException, IOException, SQLException {
+        log.info("Launch main stage");
         launch();
     }
     @FXML
@@ -218,31 +223,46 @@ public class MainMenu extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        main_stage = stage;
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("mainStage.fxml")));
-        addingStart_sc = FXMLLoader.load(Objects.requireNonNull(MainMenu.class.getResource("addStartTariff.fxml")));
-        addingSuper_sc  = FXMLLoader.load(Objects.requireNonNull(MainMenu.class.getResource("addSuperTariff.fxml")));
-        addingSuperNet_sc = FXMLLoader.load(Objects.requireNonNull(MainMenu.class.getResource("addSuperNetTariff.fxml")));
-        networkInfo_sc = FXMLLoader.load(Objects.requireNonNull(MainMenu.class.getResource("networkInfo.fxml")));
-        main_scene = new Scene(root);
-        additionStart_scene = new Scene(addingStart_sc);
-        additionSuper_scene = new Scene(addingSuper_sc);
-        additionSuperNet_scene = new Scene(addingSuperNet_sc);
-        additionalInfo_scene = new Scene(networkInfo_sc);
-        main_stage.setTitle("Курсова робота Гілети Анастасії КН-201");
-        main_stage.setScene(main_scene);
-        main_stage.show();
+        log.info("Start stage method is running");
+        try {
+            main_stage = stage;
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("mainStage.fxml")));
+            log.info("Root stage is loaded");
+            addingStart_sc = FXMLLoader.load(Objects.requireNonNull(MainMenu.class.getResource("addStartTariff.fxml")));
+            log.info("Adding start tariff stage is loaded");
+            addingSuper_sc = FXMLLoader.load(Objects.requireNonNull(MainMenu.class.getResource("addSuperTariff.fxml")));
+            log.info("Adding super tariff stage is loaded");
+            addingSuperNet_sc = FXMLLoader.load(Objects.requireNonNull(MainMenu.class.getResource("addSuperNetTariff.fxml")));
+            log.info("Adding super net tariff stage is loaded");
+            networkInfo_sc = FXMLLoader.load(Objects.requireNonNull(MainMenu.class.getResource("networkInfo.fxml")));
+            log.info("Showing mobile network info stage is loaded");
+            main_scene = new Scene(root);
+            additionStart_scene = new Scene(addingStart_sc);
+            additionSuper_scene = new Scene(addingSuper_sc);
+            additionSuperNet_scene = new Scene(addingSuperNet_sc);
+            additionalInfo_scene = new Scene(networkInfo_sc);
+            main_stage.setTitle("Курсова робота Гілети Анастасії КН-201");
+            main_stage.setScene(main_scene);
+            main_stage.show();
+        } catch (Exception e) {
+            log.error("Stage root hasn't been loaded");
+            log.fatal("Accidentally end of program");
+            System.exit(-1);
+        }
     }
 
     // без цього ексепшени про null pointer
     @FXML
     public void initialize() {
         if (root == null) {
+            log.warn("Root is null. Start initializing table");
             addTable();
         }
     }
+
     @FXML
     public void addTable() {
+        log.info("Adding table");
         ID.setCellValueFactory(new PropertyValueFactory<BaseTariff, Integer>("ID"));
         NAME.setCellValueFactory(new PropertyValueFactory<BaseTariff, String>("name"));
         TYPE.setCellValueFactory(new PropertyValueFactory<BaseTariff, String>("type"));
@@ -254,31 +274,38 @@ public class MainMenu extends Application {
         ABROAD.setCellValueFactory(new PropertyValueFactory<BaseTariff, Integer>("abroad"));
         Internet.setCellValueFactory(new PropertyValueFactory<BaseTariff, Integer>("Internet"));
     }
+
     @FXML
     void click(ActionEvent event) throws SQLException, IOException, InterruptedException {
+        log.info("Click method is running");
         tariffData.clear();
         MenuCommand cm;
         ResultSet rs;
         if (event.getSource() == show_all_btn) {
+            log.info("Show all button is clicked");
             cm = menuItems.get("view");
             rs = cm.execute(List.of("all"));
             showTariff(rs);
         }
         if (event.getSource() == exit_prg) {
+            log.info("Exit the program");
             cm = menuItems.get("exit");
             cm.execute(List.of());
         }
         if (event.getSource() == sort_btn) {
+            log.info("Sort button is clicked");
             cm = menuItems.get("sort");
             rs = cm.execute(List.of());
             showTariff(rs);
         }
         if (event.getSource() == delete_btn) {
+            log.info("Delete button is clicked");
             cm = menuItems.get("delete");
             rs = cm.execute(Arrays.asList(tariffID_txt.getText()));
             showTariff(rs);
         }
         if (event.getSource() == show_between_btn) {
+            log.info("Show between button is clicked");
             cm = menuItems.get("view");
             try {
                 int lower = Integer.parseInt(lower_te.getText());
@@ -302,6 +329,7 @@ public class MainMenu extends Application {
             }
         }
         if (event.getSource() == add_tariff) {
+            log.info("Add tariff button is clicked");
             if (start_rbt.isSelected()) {
                 main_stage.setScene(additionStart_scene);
                 main_stage.show();
@@ -377,7 +405,9 @@ public class MainMenu extends Application {
             companyNumber_txt.setText("" + network.getCompanyNumber());
         }
     }
+
     private void showTariff(ResultSet rs) throws SQLException, IllegalStateException {
+        log.info("Showing table");
         BaseTariff tariff = null;
         tariffData.clear();
         try {
@@ -395,11 +425,16 @@ public class MainMenu extends Application {
             showInfoNumbers();
         }
         catch (NullPointerException e) {
+            log.error("Null pointer in result set");
             System.out.println("\n\t" + RED_UNDERLINED + "Null pointer!" + ANSI_RESET);
         }
     }
     private void showInfoNumbers() throws SQLException {
-        tariff_numb_txt.setText("" + network.getNumberTariffs());
-        user_numb_txt.setText("" + network.calculateUserNumber());
+        try {
+            tariff_numb_txt.setText("" + network.getNumberTariffs());
+            user_numb_txt.setText("" + network.calculateUserNumber());
+        } catch (SQLException e) {
+            log.error("SQL exception in show info tariff and general user number");
+        }
     }
 }

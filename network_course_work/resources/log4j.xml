@@ -1,0 +1,18 @@
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<appender name="file" class="org.apache.log4j.FileAppender">
+		<param name="File" value="logs.log"/>
+		<param name="Append" value="false"/>
+		<param name="ImmediateFlush" value="false"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-7p %d [%t] %c %x - %m%n"/>
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="info"/>
+			<param name="LevelMax" value="fatal"/>
+		</filter>
+	</appender>
+	<root>
+		<level value="INFO"/>
+		<appender-ref ref="file"/>
+	</root>
+</log4j:configuration>

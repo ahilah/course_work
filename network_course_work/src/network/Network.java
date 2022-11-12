@@ -3,6 +3,7 @@ package network;
 import Tariff.StartTariff;
 import Tariff.SuperNetTariff;
 import Tariff.SuperTariff;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.sql.*;
@@ -11,6 +12,7 @@ import static command.Delete.ANSI_RESET;
 import static command.Delete.RED_UNDERLINED;
 
 public class Network {
+    private static Logger logger = Logger.getLogger(Network.class.getName());
     private static Network network;
     public static final String ANSI_GREEN = "\033[0;32m";   // GREEN
     private final String companyName;

@@ -1,0 +1,8 @@
+INFO    2022-11-11 19:48:27,011 [main] Main  - Start program
+INFO    2022-11-11 19:48:27,033 [main] MainMenu  - hello
+INFO    2022-11-11 19:48:27,898 [JavaFX Application Thread] MainMenu  - hello
+INFO    2022-11-11 19:48:27,934 [JavaFX Application Thread] MainMenu  - hello
+INFO    2022-11-11 19:48:28,172 [JavaFX Application Thread] MainMenu  - hello
+INFO    2022-11-11 19:48:28,183 [JavaFX Application Thread] MainMenu  - hello
+INFO    2022-11-11 19:48:28,195 [JavaFX Application Thread] MainMenu  - hello
+INFO    2022-11-11 19:48:28,207 [JavaFX Application Thread] MainMenu  - hello

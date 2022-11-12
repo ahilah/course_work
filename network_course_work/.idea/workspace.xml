@@ -12,8 +12,8 @@
       <list>
         <option value="Interface" />
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="JUnit4 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -40,9 +40,9 @@
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
-    "last_opened_file_path": "D:/programming/appliedProgramming/course_work/network_course_work",
+    "last_opened_file_path": "D:/programming/appliedProgramming/course_work/network_course_work/lib",
     "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
+    "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.lookFeel"
   },
@@ -57,10 +57,15 @@
       <recent name="command.adding" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\programming\appliedProgramming\course_work\network_course_work\lib" />
+      <recent name="D:\programming\appliedProgramming\course_work\network_course_work\resources" />
       <recent name="D:\programming\appliedProgramming\course_work\network_course_work\driver" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\programming\appliedProgramming\course_work\network_course_work\modules" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
@@ -75,6 +80,25 @@
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="network_course_work" />
       <option name="VM_PARAMETERS" value="--module-path &quot;D:\downloads\javaFX\javafx-sdk-19\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainStageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="network_course_work" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MainStageTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainStageTest.testCreateSalad" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="network_course_work" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MainStageTest" />
+      <option name="METHOD_NAME" value="testCreateSalad" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -98,32 +122,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NetworkTest.getCon" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="network_course_work" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="NetworkTest" />
-      <option name="METHOD_NAME" value="getCon" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NetworkTest.getNetwork" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="network_course_work" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value=".*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="NetworkTest" />
-      <option name="METHOD_NAME" value="getNetwork" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="NetworkTest.sortTariffs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="network_course_work" />
       <option name="PACKAGE_NAME" value="" />
@@ -136,19 +134,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.MainStageTest" />
+      <item itemvalue="JUnit.MainStageTest.testCreateSalad" />
       <item itemvalue="JUnit.NetworkTest" />
       <item itemvalue="JUnit.NetworkTest.calculateUserNumber" />
-      <item itemvalue="JUnit.NetworkTest.getCon" />
-      <item itemvalue="JUnit.NetworkTest.getNetwork" />
       <item itemvalue="JUnit.NetworkTest.sortTariffs" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MainStageTest.testCreateSalad" />
+        <item itemvalue="JUnit.MainStageTest" />
         <item itemvalue="JUnit.NetworkTest" />
         <item itemvalue="JUnit.NetworkTest.sortTariffs" />
         <item itemvalue="JUnit.NetworkTest.calculateUserNumber" />
-        <item itemvalue="JUnit.NetworkTest.getCon" />
-        <item itemvalue="JUnit.NetworkTest.getNetwork" />
       </list>
     </recent_temporary>
   </component>
