@@ -67,6 +67,7 @@ public class MainMenu extends Application {
         log.info("Launch main stage");
         launch();
     }
+
     @FXML
     static Stage main_stage;
     @FXML

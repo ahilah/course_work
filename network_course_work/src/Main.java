@@ -8,6 +8,7 @@ import java.sql.SQLException;
 
 public class Main {
     private static final Logger logger = LogManager.getLogger(Main.class.getName());
+
     public static void main(String[] args) throws InterruptedException, IOException, SQLException {
         DOMConfigurator.configure("D:\\programming\\appliedProgramming\\course_work\\network_course_work\\resources\\log4j.xml");
         //PropertyConfigurator.configure("D:\\programming\\appliedProgramming\\course_work\\network_course_work\\resources\\log4j.properties");

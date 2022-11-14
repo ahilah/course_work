@@ -29,29 +29,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/programming/appliedProgramming/course_work/network_course_work/lib&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "last_opened_file_path": "D:/programming/appliedProgramming/Network_cw",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.35402298",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;sqlserver&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlserver"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="command.adding" />
@@ -74,7 +74,7 @@
       <recent name="network" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.NetworkTest">
+  <component name="RunManager" selected="JUnit.NetworkTest.AddStartTariffTest">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="18" />
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -84,49 +84,51 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainStageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="NetworkTest.AddAndDeleteSuperNetTariffTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="network_course_work" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MainStageTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MainStageTest.testCreateSalad" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="network_course_work" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MainStageTest" />
-      <option name="METHOD_NAME" value="testCreateSalad" />
+      <option name="MAIN_CLASS_NAME" value="NetworkTest" />
+      <option name="METHOD_NAME" value="AddAndDeleteSuperNetTariffTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NetworkTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="NetworkTest.AddStartTariffTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="network_course_work" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="NetworkTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NetworkTest.calculateUserNumber" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="network_course_work" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="NetworkTest" />
-      <option name="METHOD_NAME" value="calculateUserNumber" />
+      <option name="METHOD_NAME" value="AddStartTariffTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NetworkTest.sortTariffs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="NetworkTest.AddTariffTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="network_course_work" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="NetworkTest" />
-      <option name="METHOD_NAME" value="sortTariffs" />
+      <option name="METHOD_NAME" value="AddTariffTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NetworkTest.DeleteTariffTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="network_course_work" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="NetworkTest" />
+      <option name="METHOD_NAME" value="DeleteTariffTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NetworkTest.getNumberTariffs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="network_course_work" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="NetworkTest" />
+      <option name="METHOD_NAME" value="getNumberTariffs" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -134,19 +136,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.MainStageTest" />
-      <item itemvalue="JUnit.MainStageTest.testCreateSalad" />
-      <item itemvalue="JUnit.NetworkTest" />
-      <item itemvalue="JUnit.NetworkTest.calculateUserNumber" />
-      <item itemvalue="JUnit.NetworkTest.sortTariffs" />
+      <item itemvalue="JUnit.NetworkTest.AddAndDeleteSuperNetTariffTest" />
+      <item itemvalue="JUnit.NetworkTest.AddStartTariffTest" />
+      <item itemvalue="JUnit.NetworkTest.AddTariffTest" />
+      <item itemvalue="JUnit.NetworkTest.DeleteTariffTest" />
+      <item itemvalue="JUnit.NetworkTest.getNumberTariffs" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.NetworkTest" />
-        <item itemvalue="JUnit.MainStageTest.testCreateSalad" />
-        <item itemvalue="JUnit.MainStageTest" />
-        <item itemvalue="JUnit.NetworkTest.sortTariffs" />
-        <item itemvalue="JUnit.NetworkTest.calculateUserNumber" />
+        <item itemvalue="JUnit.NetworkTest.AddStartTariffTest" />
+        <item itemvalue="JUnit.NetworkTest.getNumberTariffs" />
+        <item itemvalue="JUnit.NetworkTest.DeleteTariffTest" />
+        <item itemvalue="JUnit.NetworkTest.AddTariffTest" />
+        <item itemvalue="JUnit.NetworkTest.AddAndDeleteSuperNetTariffTest" />
       </list>
     </recent_temporary>
   </component>
@@ -192,6 +194,19 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/network_course_work$NetworkTest.ic" NAME="NetworkTest Coverage Results" MODIFIED="1668450926888" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/network_course_work$NetworkTest_AddAndDeleteSuperTariffTest.ic" NAME="NetworkTest.AddAndDeleteSuperTariffTest Coverage Results" MODIFIED="1668463227902" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/network_course_work$NetworkTest_AddStartTariffTest.ic" NAME="NetworkTest.AddStartTariffTest Coverage Results" MODIFIED="1668465015205" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/network_course_work$NetworkTest_SuperTariffTest.ic" NAME="NetworkTest.SuperTariffTest Coverage Results" MODIFIED="1668458062562" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/network_course_work$NetworkTest_sortTariffs.ic" NAME="NetworkTest.sortTariffs Coverage Results" MODIFIED="1668461448480" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/network_course_work$NetworkTest_DeleteTariffTest.ic" NAME="NetworkTest.DeleteTariffTest Coverage Results" MODIFIED="1668463652654" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/network_course_work$NetworkTest_getNumberTariffs.ic" NAME="NetworkTest.getNumberTariffs Coverage Results" MODIFIED="1668464852803" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/network_course_work$NetworkTest_AddTariffTest.ic" NAME="NetworkTest.AddTariffTest Coverage Results" MODIFIED="1668463496961" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/network_course_work$NetworkTest_ExitProgramTest.ic" NAME="NetworkTest.ExitProgramTest Coverage Results" MODIFIED="1668460405561" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/network_course_work$NetworkTest_ViewTest.ic" NAME="NetworkTest.ViewTest Coverage Results" MODIFIED="1668461252329" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/network_course_work$NetworkTest_getNetwork.ic" NAME="NetworkTest.getNetwork Coverage Results" MODIFIED="1668451688276" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/network_course_work$NetworkTest_AddAndDeleteSuperNetTariffTest.ic" NAME="NetworkTest.AddAndDeleteSuperNetTariffTest Coverage Results" MODIFIED="1668463359690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/network_course_work$NetworkTest_StartTariffTest.ic" NAME="NetworkTest.StartTariffTest Coverage Results" MODIFIED="1668458409982" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/network_course_work$NetworkTest_AddTest.ic" NAME="NetworkTest.AddTest Coverage Results" MODIFIED="1668462642310" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/network_course_work$NetworkTest.ic" NAME="NetworkTest Coverage Results" MODIFIED="1668458487438" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

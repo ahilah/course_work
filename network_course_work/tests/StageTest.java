@@ -13,9 +13,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.testfx.api.FxAssert.verifyThat;
 import static org.testfx.matcher.control.TextMatchers.hasText;
 
-public class MainStageTest extends ApplicationTest {
+public class StageTest extends ApplicationTest {
 
-    private static Logger logger = Logger.getLogger(MainStageTest.class.getName());
+    private static Logger logger = Logger.getLogger(StageTest.class.getName());
 
     @Override
     public void start(Stage stage) throws Exception {

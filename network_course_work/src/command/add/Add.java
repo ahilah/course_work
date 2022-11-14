@@ -65,7 +65,7 @@ public class Add implements MenuCommand {
             logger.error("Can't process adding SQL Query");
             return null;
         }
-        logger.info("Tariff with ID " + tariff.getID() + " was successfully added");
+        // logger.info("Tariff with ID " + tariff.getID() + " was successfully added");
         return null;
     }
 }
