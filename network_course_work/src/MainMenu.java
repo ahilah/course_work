@@ -18,7 +18,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import network.Network;
-import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
@@ -332,12 +331,15 @@ public class MainMenu extends Application {
             log.info("Add tariff button is clicked");
             if (start_rbt.isSelected()) {
                 main_stage.setScene(additionStart_scene);
+                log.info("Try to adding new Start Tariff");
                 main_stage.show();
             } else if (super_rbt.isSelected()) {
                 main_stage.setScene(additionSuper_scene);
+                log.info("Try to adding new Super Tariff");
                 main_stage.show();
             } else {
                 main_stage.setScene(additionSuperNet_scene);
+                log.info("Try to adding new Super Net Tariff");
                 main_stage.show();
             }
         }
@@ -353,6 +355,7 @@ public class MainMenu extends Application {
             main_stage.show();
         }
         if (event.getSource() == cancelStart_btn) {
+            log.info("Cancel adding Start Tariff button is clicked");
             main_stage.setScene(main_scene);
             main_stage.show();
         }
@@ -370,6 +373,7 @@ public class MainMenu extends Application {
             main_stage.show();
         }
         if (event.getSource() == cancelSuper_btn){
+            log.info("Cancel adding Super Tariff button is clicked");
             main_stage.setScene(main_scene);
             main_stage.show();
         }
@@ -387,22 +391,27 @@ public class MainMenu extends Application {
             main_stage.setScene(main_scene);
             main_stage.show();
         }
-        if (event.getSource() == cancelSuperNet_btn){
+        if (event.getSource() == cancelSuperNet_btn) {
+            log.info("Cancel adding Super Net Tariff button is clicked");
             main_stage.setScene(main_scene);
             main_stage.show();
         }
         if (event.getSource() == networkInfo_btn) {
+            log.info("Network info button is clicked");
             main_stage.setScene(additionalInfo_scene);
             main_stage.show();
         }
         if (event.getSource() == cancelInfo_btn) {
+            log.info("Cancel showing network info button is clicked");
             main_stage.setScene(main_scene);
             main_stage.show();
         }
         if (event.getSource() == showInfo_btn) {
+            log.info("Show info button is clicked");
             companyName_txt.setText("" + network.getCompanyName());
             companyEmail_txt.setText("" + network.getCompanyEmail());
             companyNumber_txt.setText("" + network.getCompanyNumber());
+            log.info("Info about network was set successfully");
         }
     }
 
@@ -422,6 +431,7 @@ public class MainMenu extends Application {
                 tariffData.add(tariff);
             }
             tableTariffs.setItems(tariffData);
+            log.info("Items were set successfully for tariff table");
             showInfoNumbers();
         }
         catch (NullPointerException e) {
@@ -433,6 +443,7 @@ public class MainMenu extends Application {
         try {
             tariff_numb_txt.setText("" + network.getNumberTariffs());
             user_numb_txt.setText("" + network.calculateUserNumber());
+            log.info("Info about tariffs and users was set successfully");
         } catch (SQLException e) {
             log.error("SQL exception in show info tariff and general user number");
         }

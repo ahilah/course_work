@@ -2,6 +2,8 @@ import Tariff.BaseTariff;
 import Tariff.StartTariff;
 import command.add.NewTariffSQL;
 import network.Network;
+import org.apache.log4j.Logger;
+import org.apache.log4j.xml.DOMConfigurator;
 import org.junit.*;
 
 import java.io.IOException;
@@ -15,6 +17,7 @@ import static command.Delete.RED_UNDERLINED;
 import static org.junit.Assert.*;
 
 public class NetworkTest {
+    private static Logger log = Logger.getLogger(NetworkTest.class.getName());
     MainMenu mm;
     Network network;
     static Connection con;
@@ -22,12 +25,15 @@ public class NetworkTest {
 
     @Before
     public void NetTest() throws SQLException, IOException {
+        DOMConfigurator.configure("D:\\programming\\appliedProgramming\\course_work\\network_course_work\\resources\\log4j.xml");
+        log.info("Testing network was started");
         mm = new MainMenu();
         network = Network.getNetwork("LvivNet", "+380666990915",
                 "lvivnet@microsoft.com");
-        con= DriverManager.getConnection("jdbc:sqlserver://DESKTOP-J4UMDEH:1433;" +
+        con = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-J4UMDEH:1433;" +
                 "databaseName=Network;user=student;password=2022;" +
                 "encrypt=true;trustServerCertificate=true");
+        log.info("Connected to SQL");
         //tariffs = new ArrayList<>(30);
         ntsql = new NewTariffSQL();
     }
@@ -35,6 +41,7 @@ public class NetworkTest {
     @AfterClass
     public static void afterClass() throws Exception {
         con.close();
+        log.info("Connection to SQL was closed");
     }
 
     @Test
@@ -83,6 +90,7 @@ public class NetworkTest {
         BaseTariff tariff = null;
         //tariffs.clear();
         try {
+            log.info("Start creating testing list of tariffs");
             while (rs.next()) {
                 if (rs.getString("Type").contains("Start")) {
                     tariff = ntsql.newStartTariff(rs);
@@ -96,6 +104,7 @@ public class NetworkTest {
             return tariffs;
         }
         catch (NullPointerException e) {
+            log.warn("List of testing tariffs is null");
             System.out.println("\n\t" + RED_UNDERLINED + "Null pointer!" + ANSI_RESET);
             return null;
         }
