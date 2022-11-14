@@ -25,7 +25,8 @@ public class NetworkTest {
 
     @Before
     public void NetTest() throws SQLException, IOException {
-        DOMConfigurator.configure("D:\\programming\\appliedProgramming\\course_work\\network_course_work\\resources\\log4j.xml");
+        DOMConfigurator.configure("D:\\programming\\appliedProgramming" +
+                "\\course_work\\network_course_work\\resources\\log4j.xml");
         log.info("Testing network was started");
         mm = new MainMenu();
         network = Network.getNetwork("LvivNet", "+380666990915",
