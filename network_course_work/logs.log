@@ -1,8 +1,72 @@
-INFO    2022-11-11 19:48:27,011 [main] Main  - Start program
-INFO    2022-11-11 19:48:27,033 [main] MainMenu  - hello
-INFO    2022-11-11 19:48:27,898 [JavaFX Application Thread] MainMenu  - hello
-INFO    2022-11-11 19:48:27,934 [JavaFX Application Thread] MainMenu  - hello
-INFO    2022-11-11 19:48:28,172 [JavaFX Application Thread] MainMenu  - hello
-INFO    2022-11-11 19:48:28,183 [JavaFX Application Thread] MainMenu  - hello
-INFO    2022-11-11 19:48:28,195 [JavaFX Application Thread] MainMenu  - hello
-INFO    2022-11-11 19:48:28,207 [JavaFX Application Thread] MainMenu  - hello
+INFO    2022-11-14 19:13:13,772 [main] Main  - Start program
+INFO    2022-11-14 19:13:14,413 [main] network.Network  - SQL Driver was successfully connected
+INFO    2022-11-14 19:13:14,413 [main] network.Network  - Instance of network was get successfully
+INFO    2022-11-14 19:13:14,413 [main] MainMenu  - Fill main menu commands
+INFO    2022-11-14 19:13:14,451 [main] MainMenu  - Launch main stage
+INFO    2022-11-14 19:13:15,694 [JavaFX Application Thread] MainMenu  - Fill main menu commands
+INFO    2022-11-14 19:13:15,715 [JavaFX Application Thread] MainMenu  - Start stage method is running
+INFO    2022-11-14 19:13:15,774 [JavaFX Application Thread] MainMenu  - Fill main menu commands
+WARN    2022-11-14 19:13:16,023 [JavaFX Application Thread] MainMenu  - Root is null. Start initializing table
+INFO    2022-11-14 19:13:16,023 [JavaFX Application Thread] MainMenu  - Adding table
+INFO    2022-11-14 19:13:16,024 [JavaFX Application Thread] MainMenu  - Root stage is loaded
+INFO    2022-11-14 19:13:16,033 [JavaFX Application Thread] MainMenu  - Fill main menu commands
+INFO    2022-11-14 19:13:16,043 [JavaFX Application Thread] MainMenu  - Adding start tariff stage is loaded
+INFO    2022-11-14 19:13:16,053 [JavaFX Application Thread] MainMenu  - Fill main menu commands
+INFO    2022-11-14 19:13:16,066 [JavaFX Application Thread] MainMenu  - Adding super tariff stage is loaded
+INFO    2022-11-14 19:13:16,075 [JavaFX Application Thread] MainMenu  - Fill main menu commands
+INFO    2022-11-14 19:13:16,085 [JavaFX Application Thread] MainMenu  - Adding super net tariff stage is loaded
+INFO    2022-11-14 19:13:16,093 [JavaFX Application Thread] MainMenu  - Fill main menu commands
+INFO    2022-11-14 19:13:16,098 [JavaFX Application Thread] MainMenu  - Showing mobile network info stage is loaded
+INFO    2022-11-14 19:13:18,541 [JavaFX Application Thread] MainMenu  - Click method is running
+INFO    2022-11-14 19:13:18,541 [JavaFX Application Thread] MainMenu  - Show all button is clicked
+INFO    2022-11-14 19:13:18,541 [JavaFX Application Thread] command.View  - View command is executed
+INFO    2022-11-14 19:13:18,541 [JavaFX Application Thread] command.View  - Start searching data for kind of view
+INFO    2022-11-14 19:13:18,600 [JavaFX Application Thread] MainMenu  - Showing table
+INFO    2022-11-14 19:13:29,797 [JavaFX Application Thread] MainMenu  - Click method is running
+INFO    2022-11-14 19:13:29,797 [JavaFX Application Thread] MainMenu  - Sort button is clicked
+INFO    2022-11-14 19:13:29,797 [JavaFX Application Thread] command.Sort  - Sort command is executed
+INFO    2022-11-14 19:13:29,807 [JavaFX Application Thread] MainMenu  - Showing table
+INFO    2022-11-14 19:13:35,325 [JavaFX Application Thread] MainMenu  - Click method is running
+INFO    2022-11-14 19:13:38,140 [JavaFX Application Thread] MainMenu  - Click method is running
+INFO    2022-11-14 19:13:38,141 [JavaFX Application Thread] MainMenu  - Show between button is clicked
+INFO    2022-11-14 19:13:38,141 [JavaFX Application Thread] command.View  - View command is executed
+INFO    2022-11-14 19:13:38,141 [JavaFX Application Thread] command.View  - Start searching data for kind of view
+INFO    2022-11-14 19:13:38,170 [JavaFX Application Thread] MainMenu  - Showing table
+INFO    2022-11-14 19:13:42,276 [JavaFX Application Thread] MainMenu  - Click method is running
+INFO    2022-11-14 19:13:42,276 [JavaFX Application Thread] MainMenu  - Show between button is clicked
+INFO    2022-11-14 19:13:42,276 [JavaFX Application Thread] command.View  - View command is executed
+INFO    2022-11-14 19:13:42,276 [JavaFX Application Thread] command.View  - Start searching data for kind of view
+INFO    2022-11-14 19:13:42,279 [JavaFX Application Thread] MainMenu  - Showing table
+INFO    2022-11-14 19:13:45,076 [JavaFX Application Thread] MainMenu  - Click method is running
+INFO    2022-11-14 19:13:46,020 [JavaFX Application Thread] MainMenu  - Click method is running
+INFO    2022-11-14 19:13:46,020 [JavaFX Application Thread] MainMenu  - Show between button is clicked
+INFO    2022-11-14 19:13:46,020 [JavaFX Application Thread] command.View  - View command is executed
+INFO    2022-11-14 19:13:46,021 [JavaFX Application Thread] command.View  - Start searching data for kind of view
+INFO    2022-11-14 19:13:46,029 [JavaFX Application Thread] MainMenu  - Showing table
+INFO    2022-11-14 19:13:49,221 [JavaFX Application Thread] MainMenu  - Click method is running
+INFO    2022-11-14 19:13:49,221 [JavaFX Application Thread] MainMenu  - Show between button is clicked
+INFO    2022-11-14 19:13:49,221 [JavaFX Application Thread] command.View  - View command is executed
+INFO    2022-11-14 19:13:49,221 [JavaFX Application Thread] command.View  - Start searching data for kind of view
+INFO    2022-11-14 19:13:49,224 [JavaFX Application Thread] MainMenu  - Showing table
+INFO    2022-11-14 19:13:54,516 [JavaFX Application Thread] MainMenu  - Click method is running
+INFO    2022-11-14 19:13:54,516 [JavaFX Application Thread] MainMenu  - Add tariff button is clicked
+INFO    2022-11-14 19:13:56,476 [JavaFX Application Thread] MainMenu  - Click method is running
+INFO    2022-11-14 19:13:58,100 [JavaFX Application Thread] MainMenu  - Click method is running
+INFO    2022-11-14 19:13:58,101 [JavaFX Application Thread] MainMenu  - Add tariff button is clicked
+INFO    2022-11-14 19:14:01,268 [JavaFX Application Thread] MainMenu  - Click method is running
+INFO    2022-11-14 19:14:02,893 [JavaFX Application Thread] MainMenu  - Click method is running
+INFO    2022-11-14 19:14:02,893 [JavaFX Application Thread] MainMenu  - Add tariff button is clicked
+INFO    2022-11-14 19:14:18,148 [JavaFX Application Thread] MainMenu  - Click method is running
+INFO    2022-11-14 19:14:27,341 [JavaFX Application Thread] MainMenu  - Click method is running
+INFO    2022-11-14 19:14:30,180 [JavaFX Application Thread] MainMenu  - Click method is running
+INFO    2022-11-14 19:14:38,756 [JavaFX Application Thread] MainMenu  - Click method is running
+INFO    2022-11-14 19:14:41,140 [JavaFX Application Thread] MainMenu  - Click method is running
+INFO    2022-11-14 19:14:41,140 [JavaFX Application Thread] MainMenu  - Show all button is clicked
+INFO    2022-11-14 19:14:41,141 [JavaFX Application Thread] command.View  - View command is executed
+INFO    2022-11-14 19:14:41,141 [JavaFX Application Thread] command.View  - Start searching data for kind of view
+INFO    2022-11-14 19:14:41,144 [JavaFX Application Thread] MainMenu  - Showing table
+INFO    2022-11-14 19:14:49,308 [JavaFX Application Thread] MainMenu  - Click method is running
+INFO    2022-11-14 19:14:49,309 [JavaFX Application Thread] MainMenu  - Exit the program
+INFO    2022-11-14 19:14:49,309 [JavaFX Application Thread] command.Exit  - Exit command is executed
+INFO    2022-11-14 19:14:49,317 [JavaFX Application Thread] command.Exit  - Connection to SQL Server is over
+INFO    2022-11-14 19:14:49,317 [JavaFX Application Thread] command.Exit  - Program is ended
