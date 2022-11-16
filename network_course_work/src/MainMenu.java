@@ -91,7 +91,7 @@ public class MainMenu extends Application {
     @FXML
     static Scene additionalInfo_scene;
     @FXML
-    private TableView tableTariffs;
+    private static TableView tableTariffs;
     @FXML
     private TableColumn<BaseTariff, Integer> ABROAD;
     @FXML
@@ -273,6 +273,10 @@ public class MainMenu extends Application {
         Other_Net.setCellValueFactory(new PropertyValueFactory<BaseTariff, Integer>("other"));
         ABROAD.setCellValueFactory(new PropertyValueFactory<BaseTariff, Integer>("abroad"));
         Internet.setCellValueFactory(new PropertyValueFactory<BaseTariff, Integer>("Internet"));
+    }
+
+    public static TableView getTableTariffs() {
+        return tableTariffs;
     }
 
     @FXML

@@ -1,21 +1,36 @@
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
 import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
+
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.testfx.api.FxRobot;
+import org.testfx.api.FxToolkit;
 import org.testfx.framework.junit.ApplicationTest;
 
 import java.util.Objects;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.testfx.api.FxAssert.verifyThat;
-import static org.testfx.matcher.control.TextMatchers.hasText;
-
 public class StageTest extends ApplicationTest {
 
     private static Logger logger = Logger.getLogger(StageTest.class.getName());
+
+    @After
+    public void tearDown () throws Exception {
+        FxToolkit.hideStage();
+        release(new KeyCode[]{});
+        release(new MouseButton[]{});
+    }
+
+    @Before
+    public void setUp() throws Exception {
+    }
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -30,18 +45,33 @@ public class StageTest extends ApplicationTest {
     }
 
     @Test
-    public void testCreateSalad(){
-        //verifyThat("#companyName",hasText("Company Name: Emirates Airline"));
-        clickOn("#Show all tariffs");
+    public void testCheckTable() {
+        FxRobot robot = new FxRobot();
+        robot.clickOn("show_all_btn");
         sleep(10000);
-        /*clickOn("#Name").write("Dream");
-        sleep(600);
-        clickOn("#id").write("013");
-        sleep(600);
-        clickOn("#Confirm");
-
-        String example =  Salad.getBoxForm().toString() + Salad.getId();
-        assertEquals(" Its name: " + "Dream" +
-                " Its ID: " + 013 ,example);*/
+        Assertions.assertNotNull(MainMenu.getTableTariffs().getColumns());
     }
+
+    @Test
+    public void testCheckExit() {
+
+        FxRobot robot = new FxRobot();
+        robot.clickOn("exit_prg");
+        sleep(10000);
+    }
+
+    @Test
+    public void testCheckSort() {
+        FxRobot robot = new FxRobot();
+        robot.clickOn("sort_btn");
+        sleep(10000);
+    }
+
+    @Test
+    public void testCheckNet() {
+        FxRobot robot = new FxRobot();
+        robot.clickOn("networkInfo_btn");
+        sleep(10000);
+    }
+
 }

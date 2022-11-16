@@ -1,25 +1,5 @@
-INFO    2022-11-15 00:30:18,380 [main] NetworkTest  - Testing network was started
-INFO    2022-11-15 00:30:19,365 [main] network.Network  - SQL Driver was successfully connected
-INFO    2022-11-15 00:30:19,366 [main] network.Network  - Instance of network was get successfully
-INFO    2022-11-15 00:30:19,366 [main] MainMenu  - Fill main menu commands
-INFO    2022-11-15 00:30:19,430 [main] NetworkTest  - Connected to SQL
-INFO    2022-11-15 00:30:19,431 [main] command.add.Add  - Add command is executed
-WARN    2022-11-15 00:30:19,431 [main] command.add.Add  - Not all parameters were inputted
-INFO    2022-11-15 00:30:19,445 [main] network.Network  - Connection with SQL was successfully closed
-INFO    2022-11-15 00:30:19,445 [main] command.add.Add  - Add command is executed
-ERROR   2022-11-15 00:30:19,447 [main] network.Network  - Can't set query string or execute update in Start Tariff
-WARN    2022-11-15 00:30:19,447 [main] NetworkTest  - Disconnected from SQL
-ERROR   2022-11-15 00:30:19,447 [main] network.Network  - Can't execute query for getting number of tariffs
-ERROR   2022-11-15 00:30:19,449 [main] network.Network  - Can't execute query for getting tariff list
-ERROR   2022-11-15 00:30:19,452 [main] network.Network  - Can't execute query for getting tariffs with Internet [1; 100]
-ERROR   2022-11-15 00:30:19,453 [main] network.Network  - Can't execute query for getting tariffs with abroad [1; 100]
-ERROR   2022-11-15 00:30:19,453 [main] network.Network  - Can't execute query for getting tariffs with minutes o other network [1; 100]
-ERROR   2022-11-15 00:30:19,453 [main] network.Network  - Can't execute query for getting tariffs with SMS [1; 100]
-ERROR   2022-11-15 00:30:19,454 [main] network.Network  - Can't execute query for getting tariffs with minutes on this network [1; 100]
-ERROR   2022-11-15 00:30:19,454 [main] network.Network  - Can't execute query for getting tariffs with price [1; 100]
-ERROR   2022-11-15 00:30:19,454 [main] network.Network  - Can't execute query for searching tariff with ID 20
-ERROR   2022-11-15 00:30:19,456 [main] network.Network  - Can't execute query for removing tariff with ID 30
-ERROR   2022-11-15 00:30:19,456 [main] network.Network  - Can't execute query for sorting list of tariffs
-ERROR   2022-11-15 00:30:19,456 [main] network.Network  - Can't execute query for calculating number of customers
-INFO    2022-11-15 00:30:19,457 [main] network.Network  - Connection with SQL was successfully closed
-INFO    2022-11-15 00:30:19,460 [main] NetworkTest  - Connection to SQL was closed
+INFO    2022-11-16 20:27:31,958 [JavaFX Application Thread] network.Network  - SQL Driver was successfully connected
+INFO    2022-11-16 20:27:31,960 [JavaFX Application Thread] network.Network  - Instance of network was get successfully
+INFO    2022-11-16 20:27:31,960 [JavaFX Application Thread] MainMenu  - Fill main menu commands
+WARN    2022-11-16 20:27:32,193 [JavaFX Application Thread] MainMenu  - Root is null. Start initializing table
+INFO    2022-11-16 20:27:32,194 [JavaFX Application Thread] MainMenu  - Adding table

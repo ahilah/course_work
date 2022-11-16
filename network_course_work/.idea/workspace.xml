@@ -40,7 +40,7 @@
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
-    "last_opened_file_path": "D:/programming/appliedProgramming/Network_cw",
+    "last_opened_file_path": "D:/хз/testsJavafx",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.35402298",
@@ -74,7 +74,7 @@
       <recent name="network" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.NetworkTest.AddStartTariffTest">
+  <component name="RunManager" selected="JUnit.StageTest.testCheckTable">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="18" />
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -84,41 +84,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NetworkTest.AddAndDeleteSuperNetTariffTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="network_course_work" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="NetworkTest" />
-      <option name="METHOD_NAME" value="AddAndDeleteSuperNetTariffTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="NetworkTest.AddStartTariffTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="network_course_work" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="NetworkTest" />
       <option name="METHOD_NAME" value="AddStartTariffTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NetworkTest.AddTariffTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="network_course_work" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="NetworkTest" />
-      <option name="METHOD_NAME" value="AddTariffTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NetworkTest.DeleteTariffTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="network_course_work" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="NetworkTest" />
-      <option name="METHOD_NAME" value="DeleteTariffTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -134,21 +104,50 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="StageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="network_course_work" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="StageTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StageTest.testButtonClick" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="network_course_work" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="StageTest" />
+      <option name="METHOD_NAME" value="testButtonClick" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StageTest.testCheckTable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="network_course_work" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="StageTest" />
+      <option name="METHOD_NAME" value="testCheckTable" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.NetworkTest.AddAndDeleteSuperNetTariffTest" />
+      <item itemvalue="JUnit.StageTest" />
+      <item itemvalue="JUnit.StageTest.testButtonClick" />
+      <item itemvalue="JUnit.StageTest.testCheckTable" />
       <item itemvalue="JUnit.NetworkTest.AddStartTariffTest" />
-      <item itemvalue="JUnit.NetworkTest.AddTariffTest" />
-      <item itemvalue="JUnit.NetworkTest.DeleteTariffTest" />
       <item itemvalue="JUnit.NetworkTest.getNumberTariffs" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.StageTest.testCheckTable" />
+        <item itemvalue="JUnit.StageTest" />
+        <item itemvalue="JUnit.StageTest.testButtonClick" />
         <item itemvalue="JUnit.NetworkTest.AddStartTariffTest" />
         <item itemvalue="JUnit.NetworkTest.getNumberTariffs" />
-        <item itemvalue="JUnit.NetworkTest.DeleteTariffTest" />
-        <item itemvalue="JUnit.NetworkTest.AddTariffTest" />
-        <item itemvalue="JUnit.NetworkTest.AddAndDeleteSuperNetTariffTest" />
       </list>
     </recent_temporary>
   </component>
